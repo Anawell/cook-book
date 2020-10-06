@@ -1,0 +1,15 @@
+<h1>Ingrédients</h1>
+
+<h2>Rechercher un ingrédient</h2>
+<form action="/ingredients" method="GET">
+    <label for="search">Quel ingrédient?</label>
+    <input id="search" type="text" name="name" value="<%= searchOptions.name %>">
+    <button type="submit">Rechercher</button>
+</form>
+
+<h2>Tous les ingrédients</h2>
+<% ingredients.forEach(ingredient => { %> 
+    <div>
+        <%= ingredient.name %> 
+    </div>
+<% }) %> 
