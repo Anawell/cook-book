@@ -2,19 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Recette = require('../models/recette');
 const Ingredient = require('../models/ingredient');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
 
-const uploadPath = path.join('public', Recette.coverImageBasePath); // Multer crée le dossier automatiquement
 const imageMimeTypes = ['image/jpeg', 'image/png'];
-
-const upload = multer({
-    dest: uploadPath, // où l'upload aura lieu
-    fileFilter: (req, file, callback) => { // quels fichiers le server accepte
-        callback(null, imageMimeTypes.includes(file.mimetype))
-    }
-});
 
 // All recettes route
 router.get('/', async (req, res) => {
@@ -46,8 +35,7 @@ router.get('/ajouter', async (req, res) => {
 });
 
 // Creation new recette route
-router.post('/', upload.single('cover'), async (req, res) => { // Multer nous permet de dire qu'on upload une image de name 'cover' et créé la variable "file"
-    const fileName = req.file != null ? req.file.filename : null; // on vérifie s'il y a bien la variable file dans la requete (= il y a bien une image) et si oui, on récupère son nom
+router.post('/', async (req, res) => { // Multer nous permet de dire qu'on upload une image de name 'cover' et créé la variable "file"
     const recette = new Recette({
         title: req.body.title,
         category: req.body.category,
@@ -55,28 +43,30 @@ router.post('/', upload.single('cover'), async (req, res) => { // Multer nous pe
         timeCount: req.body.timeCount,
         difficultyCount: req.body.difficultyCount,
         ingredient: req.body.ingredient,
-        coverImageName: fileName,
         listIngredients: req.body.listIngredients,
         steps: req.body.steps
     })
+
+    saveCover(recette, req.body.cover);
+
     try {
         const newRecette = await recette.save(); // si la recette a bien été enregistrée dans la BDD
         //res.redirect(`recettes/${newRecette.id}`);
         res.redirect(`recettes`);
     } catch {
-        if (recette.coverImageName != null) {
-            removeRecetteCover(recette.coverImageName);
-        }
         renderNewPage(res, new Recette(), true); // on réaffiche la page listing des recettes si erreur + true pour activer le hasError
     }
 });
 
-function removeRecetteCover(fileName) {
-    fs.unlink(path.join(uploadPath, fileName), err => {
-        if(err) {
-            console.error(err);
-        }
-    })
+function saveCover(recette, encodedCover) { // FileEncode de FilePond encode l'image en base64 (string) puis la store dans un objet JSON.
+    if (encodedCover == null) return;
+    const cover = JSON.parse(encodedCover); // on transforme le JSON en objet JS
+    if (cover != null && imageMimeTypes.includes(cover.type)) {
+        recette.coverImage = Buffer.from(cover.data, 'base64'); 
+        // la propriété data est une propriété comprise dans l'objet JSON et contient la string Base64 - voir doc File Encode Plugin
+        // On la transforme en type Buffer en précisant son type d'origine (Base64)
+        recette.coverImageType = cover.type; // on obtient le MIME type
+    }
 }
 
 async function renderNewPage(res, recette, hasError = false) {

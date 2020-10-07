@@ -1,7 +1,4 @@
 const mongoose = require('mongoose');
-const path = require('path');
-
-const coverImageBasePath = 'uploads/recette-covers';
 
 const recetteSchema = new mongoose.Schema({
     title: {
@@ -29,7 +26,11 @@ const recetteSchema = new mongoose.Schema({
         required: true,
         default: Date.now()
     },
-    coverImageName: {
+    coverImage: {
+        type: Buffer, // handle raw binary data
+        required: true
+    },
+    coverImageType: {
         type: String,
         required: true
     },
@@ -49,10 +50,9 @@ const recetteSchema = new mongoose.Schema({
 });
 
 recetteSchema.virtual('coverImagePath').get(function() { // permet d'ajouter des propriétés virtuelles à notre modèle. Le nom de la nouvelle variable est la string en param de la fonction virtual
-    if (this.coverImageName != null) { // si une image existe, on veut retourner son path
-        return path.join('/', coverImageBasePath, this.coverImageName); // '/' représente la racine du dossier ('public'), puis coverImageBasePath défini plus haut puis le nom du fichier
+    if (this.coverImage != null && this.coverImageType != null) { // si une image existe, on veut retourner son path
+        return `data:${this.coverImageType};charset=utf-8;base64,${this.coverImage.toString('base64')}`;
     }
 }) 
 
 module.exports = mongoose.model('Recette', recetteSchema);
-module.exports.coverImageBasePath = coverImageBasePath;
