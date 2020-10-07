@@ -1,0 +1,7 @@
+<h1>Ajouter une nouvelle recette</h1>
+
+<form action="/recettes" method="POST" enctype="multipart/form-data">
+    <%- include('_form_fields.ejs') %> 
+    <a href="/recettes">Annuler</a>
+    <button type="submit">Ajouter</button>
+</form>

@@ -1,1 +1,10 @@
-Middle
+<h1>Cook book</h1>
+
+<h2>Les dernières recettes</h2>
+
+<% recettes.forEach(recette => { %> 
+    <img src="<%= recette.coverImagePath %> " alt="Illustration de la recette <%= recette.title %>" height="150" width="100">
+    <h3>
+        <%= recette.title %> 
+    </h3>
+<% }) %> 

@@ -1,0 +1,36 @@
+<h1>Recettes</h1>
+
+<h2>Rechercher une recette</h2>
+<form action="/recettes" method="GET">
+    <div>
+        <label for="title">Quelle titre de recette ?</label>
+        <input id="title" type="text" name="title" value="<%= searchOptions.title %>">
+    </div>
+    <div>
+        <label for="difficulty">Quelle niveau de difficulté ?</label>
+        <input id="difficulty" type="number" name="difficulty" min="0" max="5" value="<%= searchOptions.difficulty %>">
+    </div>
+    <div>
+        <label for="category">Quelle catégorie ?</label>
+        <select name="category" id="category">
+            <option selected value="">Choisissez</option>
+            <option value="Apéritif et buffet">Apéritif et buffet</option>
+            <option value="Entrée">Entrée</option>
+            <option value="Plat principal">Plat principal</option>
+            <option value="Accompagnement">Accompagnement</option>
+            <option value="Dessert">Dessert</option>
+            <option value="Confiserie">Confiserie</option>
+            <option value="Boisson">Boisson</option>
+        </select>
+    </div>
+   
+    <button type="submit">Rechercher</button>
+</form>
+
+<h2>Toutes les recettes</h2>
+<% recettes.forEach(recette => { %> 
+    <img src="<%= recette.coverImagePath %> " alt="Illustration de la recette <%= recette.title %>" height="150" width="100">
+    <h3>
+        <%= recette.title %> 
+    </h3>
+<% }) %> 

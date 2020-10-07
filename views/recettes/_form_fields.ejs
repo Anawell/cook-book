@@ -1,0 +1,52 @@
+<div>
+    <label for="title">Titre de la recette</label>
+    <input id="title" type="text" name="title" value="<%= recette.title %>">
+</div>
+<div>
+    <label for="ingredient">Ingrédient principal de la recette</label>
+    <select name="ingredient" id="ingredient">
+    <% ingredients.forEach(ingredient => { %> 
+        <% if (ingredient.id === recette.ingredient) { %> 
+            <option selected value="<%= ingredient.id %>"><%= ingredient.name %></option>
+        <% } else { %>
+            <option value="<%= ingredient.id %>"><%= ingredient.name %></option>
+        <% } %>
+    <% }); %> 
+    </select>
+</div>
+<div>
+    <label for="category">Catégorie de la recette</label>
+    <select name="category" id="category">
+        <option value="Apéritif et buffet">Apéritif et buffet</option>
+        <option value="Entrée">Entrée</option>
+        <option value="Plat principal">Plat principal</option>
+        <option value="Accompagnement">Accompagnement</option>
+        <option value="Dessert">Dessert</option>
+        <option value="Confiserie">Confiserie</option>
+        <option value="Boisson">Boisson</option>
+    </select>
+</div>
+<div>
+    <label for="personCount">Pour combien de personnes?</label>
+    <input id="personCount" type="number" name="personCount" min="1" value="<%= recette.personCount %>">
+</div>
+<div>
+    <label for="timeCount">Temps total de la recette (en minutes)</label>
+    <input id="timeCount" type="number" name="timeCount" min="1" value="<%= recette.timeCount %>">
+</div>
+<div>
+    <label for="difficultyCount">Difficulté de la recette (de très facile à très difficile)</label>
+    <input id="difficultyCount" type="range" name="difficultyCount" min="0" max="5" value="<%= recette.difficultyCount %>">
+</div>
+<div>
+    <label for="cover">Photo de la recette</label>
+    <input id="cover" type="file" name="cover">
+</div>
+<div>
+    <label for="listIngredients">Liste des ingrédients</label>
+    <textarea name="listIngredients" id="listIngredients"><%= recette.listIngredients %></textarea>
+</div>
+<div>
+    <label for="steps">Etapes de la recette</label>
+    <textarea name="steps" id="steps"><%= recette.steps %></textarea>
+</div>
