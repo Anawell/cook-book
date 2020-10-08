@@ -8,7 +8,7 @@
     </div>
     <div>
         <label for="difficulty">Quelle niveau de difficulté ?</label>
-        <input id="difficulty" type="number" name="difficulty" min="0" max="5" value="<%= searchOptions.difficulty %>">
+        <input id="difficulty" type="number" name="difficulty" min="0" max="3" value="<%= searchOptions.difficulty %>">
     </div>
     <div>
         <label for="category">Quelle catégorie ?</label>
@@ -29,8 +29,8 @@
 
 <h2>Toutes les recettes</h2>
 <% recettes.forEach(recette => { %> 
-    <img src="<%= recette.coverImagePath %> " alt="Illustration de la recette <%= recette.title %>" height="600" width="400">
-    <h3>
-        <%= recette.title %> 
-    </h3>
+    <a href="/recettes/<%= recette.id %>">
+        <img src="<%= recette.coverImagePath %> " alt="Illustration de la recette <%= recette.title %>" height="600" width="400">
+        <h3><%= recette.title %></h3>
+    </a>
 <% }) %> 
