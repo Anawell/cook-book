@@ -12,4 +12,7 @@
     <div>
         <%= ingredient.name %> 
     </div>
+    <a href="/ingredients/<%= ingredient.id %>">Afficher</a>
+    <a href="/ingredients/<%= ingredient.id %>/editer">Editer</a>
+    <%- include('../partials/delete_form.ejs', { url: `/ingredients/${ingredient.id}`}) %> 
 <% }) %> 

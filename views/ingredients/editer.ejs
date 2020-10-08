@@ -1,0 +1,7 @@
+<h1>Editer l'ingrédient</h1>
+
+<form action="/ingredients/<%= ingredient.id %>?_method=PUT" method="POST">
+    <%- include('_form_fields.ejs') %> 
+    <a href="/ingredients/<%= ingredient.id %>">Annuler</a>
+    <button type="submit">Modifier</button>
+</form>
