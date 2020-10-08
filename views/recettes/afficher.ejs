@@ -34,6 +34,6 @@
 <a href="/recettes/<%= recette.id %>/editer">Editer</a>
 <div>
     Pour en savoir plus sur l'ingrédient principal de cette recette:
-    <a href="/ingredients/<%= recette.ingredient.id %>">Voir la fiche <%= recette.ingredient.name %></a>
+    <a href="/ingredients/<%= recette.ingredient.slug %>">Voir la fiche <%= recette.ingredient.name %></a>
 </div>
 <%- include('../partials/delete_form.ejs', { url: `/recettes/${recette.id}` }) %>

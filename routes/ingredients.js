@@ -34,13 +34,15 @@ router.get('/ajouter', (req, res) => {
 // Creation new ingredient route
 router.post('/', async (req, res) => { 
     const ingredient = new Ingredient({ 
-        name: req.body.name
+        name: req.body.name,
+        /* slug: req.body.slug */
     })
     try {
         const newIngredient = await ingredient.save();
-        res.redirect(`ingredients/${newIngredient.id}`);
+        res.redirect(`ingredients/${newIngredient.slug}`);
 
-    } catch {
+    } catch (e) {
+        console.log(e);
         res.render('ingredients/ajouter', { 
             ingredient: ingredient,
             errorMessage: 'Erreur lors de la création du nouvel ingrédient' 
@@ -50,9 +52,9 @@ router.post('/', async (req, res) => {
 
 
 // Display ingredient single page
-router.get('/:id', async (req, res) => { // : signifie qu'il va y avoir après une variable appelée id
+router.get('/:slug', async (req, res) => { // : signifie qu'il va y avoir après une variable appelée id
     try {
-        const ingredient = await Ingredient.findById(req.params.id); // params donne tous les parametres envoyes dans l'url
+        const ingredient = await Ingredient.findOne({ slug: req.params.slug }); // params donne tous les parametres envoyes dans l'url
         const recettes = await Recette.find({ ingredient: ingredient.id }).exec(); // on cherche les recettes associées à l'ingrédient grâce à son id. 
         // Ici on pourrait mettre .limit(n) avant .exec()
         res.render('ingredients/afficher', {
@@ -66,9 +68,9 @@ router.get('/:id', async (req, res) => { // : signifie qu'il va y avoir après u
 
 
 // display the form to edit an ingredient
-router.get('/:id/editer', async (req, res) => { 
+router.get('/:slug/editer', async (req, res) => { 
     try {
-        const ingredient = await Ingredient.findById(req.params.id);
+        const ingredient = await Ingredient.findOne({ slug: req.params.slug });
         res.render('ingredients/editer', { 
             ingredient: ingredient 
         });  
@@ -79,14 +81,14 @@ router.get('/:id/editer', async (req, res) => {
 });
 
 // modify an ingredient
-router.put('/:id', async (req, res) => { 
+router.put('/:slug', async (req, res) => { 
     let ingredient; // cette variable doit être définie hors du try, pour qu'on puisse s'en servir dans le catch
     try {
-        ingredient = await Ingredient.findById(req.params.id);
+        ingredient = await Ingredient.findOne({ slug: req.params.slug });
         // on dit ce qu'on veut pouvoir parametrer
         ingredient.name = req.body.name;
         await ingredient.save();
-        res.redirect(`/ingredients/${ingredient.id}`); // le slash dit que l'on veut le root (donc localhost ici), sans ça, il comprend que c'est un chemin relatif
+        res.redirect(`/ingredients/${ingredient.slug}`); // le slash dit que l'on veut le root (donc localhost ici), sans ça, il comprend que c'est un chemin relatif
     } catch {
         if (ingredient == null) { // = si on echoue à trouver l'ingredient dans la DB
             res.redirect('/');
@@ -99,17 +101,17 @@ router.put('/:id', async (req, res) => {
     } 
 });
 
-router.delete('/:id', async (req, res) => { 
+router.delete('/:slug', async (req, res) => { 
     let ingredient; // cette variable doit être définie hors du try, pour qu'on puisse s'en servir dans le catch
     try {
-        ingredient = await Ingredient.findById(req.params.id);
+        ingredient = await Ingredient.findOne({ slug: req.params.slug });
         await ingredient.remove();
         res.redirect('/ingredients'); // le slash dit que l'on veut le root (donc localhost ici), sans ça, il comprend que c'est un chemin relatif
     } catch {
         if (ingredient == null) { // = si on echoue à trouver l'ingredient dans la DB
             res.redirect('/');
         } else {
-            res.redirect(`/ingredients/${ingredient.id}`);
+            res.redirect(`/ingredients/${ingredient.slug}`);
         }
     } 
 });
