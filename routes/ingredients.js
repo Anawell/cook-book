@@ -34,8 +34,7 @@ router.get('/ajouter', (req, res) => {
 // Creation new ingredient route
 router.post('/', async (req, res) => { 
     const ingredient = new Ingredient({ 
-        name: req.body.name,
-        /* slug: req.body.slug */
+        name: req.body.name
     })
     try {
         const newIngredient = await ingredient.save();

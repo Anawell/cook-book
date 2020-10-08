@@ -1,6 +1,6 @@
 <h1>Editer ma recette</h1>
 
-<form action="/recettes/<%= recette.id %>?_method=PUT" method="POST">
+<form action="/recettes/<%= recette.slug %>?_method=PUT" method="POST">
     <%- include('_form_fields.ejs') %> 
     <a href="/recettes">Annuler</a>
     <button type="submit">Enregistrer mes modifications</button>

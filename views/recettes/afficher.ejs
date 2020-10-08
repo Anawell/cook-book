@@ -31,9 +31,9 @@
     <p><%= recette.steps %></p>
 </div>
 
-<a href="/recettes/<%= recette.id %>/editer">Editer</a>
+<a href="/recettes/<%= recette.slug %>/editer">Editer</a>
 <div>
     Pour en savoir plus sur l'ingrédient principal de cette recette:
     <a href="/ingredients/<%= recette.ingredient.slug %>">Voir la fiche <%= recette.ingredient.name %></a>
 </div>
-<%- include('../partials/delete_form.ejs', { url: `/recettes/${recette.id}` }) %>
+<%- include('../partials/delete_form.ejs', { url: `/recettes/${recette.slug}` }) %>

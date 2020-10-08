@@ -49,16 +49,17 @@ router.post('/', async (req, res) => {
     saveCover(recette, req.body.cover);
     try {
         const newRecette = await recette.save(); // si la recette a bien été enregistrée dans la BDD
-        res.redirect(`/recettes/${newRecette.id}`);
-    } catch {
+        res.redirect(`/recettes/${newRecette.slug}`);
+    } catch (e) {
+        console.log(e);
         renderNewPage(res, new Recette(), true); // on réaffiche la page listing des recettes si erreur + true pour activer le hasError
     }
 });
 
 // Display a single recette
-router.get('/:id', async (req, res) => {
+router.get('/:slug', async (req, res) => {
     try {
-        const recette = await Recette.findById(req.params.id).populate('ingredient').exec(); 
+        const recette = await Recette.findOne({ slug: req.params.slug }).populate('ingredient').exec(); 
         // si on ne met pas le .populate, la DB renvoie l'id de l'ingredient, et pas son nom! Avec populate, il renvoie un objet contenant toutes les infos de l'ingredient
         res.render('recettes/afficher', {
             recette: recette
@@ -69,9 +70,9 @@ router.get('/:id', async (req, res) => {
 });
 
 // Edit a single recette
-router.get('/:id/editer', async (req, res) => {
+router.get('/:slug/editer', async (req, res) => {
     try {
-        recette = await Recette.findById(req.params.id)
+        recette = await Recette.findOne({ slug: req.params.slug });
         renderEditPage(res, recette);
     } catch {
         res.redirect('/');
@@ -80,10 +81,10 @@ router.get('/:id/editer', async (req, res) => {
 });
 
 // Modify a single recette
-router.put('/:id', async (req, res) => { 
+router.put('/:slug', async (req, res) => { 
     let recette;
     try {
-        recette = await Recette.findById(req.params.id) 
+        recette = await Recette.findOne({ slug: req.params.slug });
         recette.title = req.body.title;
         recette.category = req.body.category;
         recette.personCount = req.body.personCount;
@@ -96,7 +97,7 @@ router.put('/:id', async (req, res) => {
             saveCover(recette, req.body.cover);
         }
         await recette.save();
-        res.redirect(`/recettes/${recette.id}`);
+        res.redirect(`/recettes/${recette.slug}`);
     } catch (err) {
         console.log(err);
         if (recette != null) {
@@ -108,10 +109,10 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete a recette
-router.delete('/:id', async (req, res) => {
+router.delete('/:slug', async (req, res) => {
     let recette;
     try {
-        recette = await Recette.findById(req.params.id);
+        recette = await Recette.findOne({ slug: req.params.slug });
         await recette.remove();
         res.redirect('/recettes');
     } catch {

@@ -3,7 +3,7 @@
 
 <div class="thumbnail_grid<%= thumbnailGridClass %>">
     <% recettes.forEach(recette => { %> 
-        <a href="/recettes/<%= recette.id %>">
+        <a href="/recettes/<%= recette.slug %>">
             <img class="thumbnail_cover<%= thumbnailCoverClass %>" src="<%= recette.coverImagePath %> " alt="Illustration de la recette <%= recette.title %>">
             <h3><%= recette.title %></h3>
         </a>
