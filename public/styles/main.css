@@ -1,0 +1,13 @@
+
+@import 'shared/fonts.css';
+@import 'shared/variables.css';
+@import 'shared/buttons.css';
+@import 'shared/form.css';
+@import 'shared/header.css';
+@import 'shared/recettes.css';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}

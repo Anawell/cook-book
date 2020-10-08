@@ -3,8 +3,5 @@
 <h2>Les dernières recettes</h2>
 
 <% recettes.forEach(recette => { %> 
-    <a href="/recettes/<%= recette.id %>">
-        <img src="<%= recette.coverImagePath %> " alt="Illustration de la recette <%= recette.title %>" height="600" width="400">
-        <h3><%= recette.title %></h3>
-    </a>
+    <%- include('partials/thumbnails_grid.ejs', { recettes: recettes, large: true }) %> 
 <% }) %> 

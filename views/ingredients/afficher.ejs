@@ -3,10 +3,5 @@
 <%- include('../partials/delete_form.ejs', { url: `/ingredients/${ingredient.id}`}) %> 
 <% if (recettesByIngredient.length > 0) { %> 
     <h2>Recettes réalisées avec cet ingrédient</h2>
-    <% recettesByIngredient.forEach(recette => { %> 
-        <a href="/recettes/<%= recette.id %>">
-            <img src="<%= recette.coverImagePath %> " alt="Illustration de la recette <%= recette.title %>" height="600" width="400">
-            <h3><%= recette.title %></h3>
-        </a>
-    <% }) %> 
+    <%- include('../partials/thumbnails_grid.ejs', { recettes: recettesByIngredient }) %> 
 <% } %> 
