@@ -1,0 +1,64 @@
+/* ==========================================================================
+   Containers
+   ========================================================================== */
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: auto;
+    padding-left: calc(var(--space-unit) * 1);
+    padding-right: calc(var(--space-unit) * 1);
+}
+
+.container--large {
+    max-width: 1440px;
+}
+
+/* ==========================================================================
+   Grids
+   ========================================================================== */
+
+.grid {
+    display: grid;
+}
+
+.grid--top {
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+/* ==========================================================================
+   Blocks
+   ========================================================================== */
+
+.section {
+    padding-top: calc(var(--space-unit) * 3);
+    padding-bottom: calc(var(--space-unit) * 3);
+}
+
+
+/* ==========================================================================
+   Alignment
+   ========================================================================== */
+
+.is-centered {
+    text-align: center;
+}
+
+
+/* ==========================================================================
+   Borders
+   ========================================================================== */
+
+.has-thin-border-bottom {
+    border-bottom: var(--thin-border);
+}
+
+.has-thin-border-top {
+    border-top: var(--thin-border);
+}
+
+.has-thick-border-bottom {
+    border-bottom: var(--thick-border);
+}

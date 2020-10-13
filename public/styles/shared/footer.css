@@ -1,0 +1,49 @@
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.footer {
+    margin-top: auto;
+}
+
+
+/* ==========================================================================
+    Nav look
+    ========================================================================== */
+
+footer a {
+    color: inherit;
+}
+
+footer a:hover,
+footer a:focus {
+    color: var(--color-accent);
+}
+
+footer a:hover::before,
+footer a:focus::before {
+    color: var(--color-dark);
+}
+
+/* ==========================================================================
+    Typography
+    ========================================================================== */
+
+.footer__legal {
+    font-size: 1.3rem;
+    padding: calc(var(--space-unit) * 1) 0;
+}
+
+.footer__legal a {
+    position: relative;
+    display: inline-block;
+    margin-left: 3px;
+    text-decoration: none;
+}
+
+.footer__legal a::before {
+    content: "\2022";
+    position: relative;
+    margin-right: 6px;
+}

@@ -10,7 +10,8 @@ router.get('/', async (req, res) => {
         books = []
     }
     res.render('index', {
-        recettes: recettes
+        recettes: recettes,
+        pageName: 'accueil'
     }); 
 });
 

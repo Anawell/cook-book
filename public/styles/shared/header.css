@@ -1,0 +1,109 @@
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.actions-nav_container,
+.main-nav_container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.actions-nav_container {
+    justify-content: flex-end;
+}
+
+.main-nav_container {
+    justify-content: space-around;
+} 
+
+
+/* ==========================================================================
+   Nav global
+   ========================================================================== */
+
+nav ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+nav a {
+    transition: 0.3s;
+    text-decoration: none;
+    color: var(--color-dark);
+}
+
+nav a:hover,
+nav a:focus {
+    color: var(--color-accent);
+}
+
+nav .is-active a {
+    color: var(--color-med);
+}
+
+
+/* ==========================================================================
+    Spacing
+    ========================================================================== */
+
+.main-nav {
+    padding: calc(var(--space-unit) * 2) 0;
+}
+
+.actions-nav_item {
+    margin-right: calc(var(--space-unit) * 2);
+}
+
+/* ==========================================================================
+    Style
+    ========================================================================== */
+
+.actions-nav_item a,
+.main-nav_item a {
+    font-family: 'Lato', serif;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+}
+
+.main-nav_item a {
+    font-weight: 700;
+}
+
+.actions-nav_item a {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+    Logo
+    ========================================================================== */
+
+.main-nav_logo {
+    overflow: hidden;
+    width: 180px;
+    height: 68px;
+}
+
+.main-nav_logo span {
+    text-indent: -9999px;
+}
+
+.main-nav_logo.is-desktop {
+    display: none;
+}
+
+.main-nav_logo.is-mobile {
+    margin: auto;
+    margin-bottom: calc(var(--space-unit) * 2);
+}
+
+@media screen and (min-width: 800px) {
+    .main-nav_logo.is-mobile {
+        display: none;
+    }
+    .main-nav_logo.is-desktop {
+        display: inline-block;
+    }
+}

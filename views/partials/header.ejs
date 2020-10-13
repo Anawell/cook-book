@@ -1,11 +1,46 @@
 <header>
-    <nav>
-        <a href="/">Cook Book</a>
-        <ul>
-            <li><a href="/ingredients">Ingrédients</a></li>
-            <li><a href="/ingredients/ajouter">Ajouter un ingrédient</a></li>
-            <li><a href="/recettes">Recettes</a></li>
-            <li><a href="/recettes/ajouter">Ajouter une recette</a></li>
-        </ul>
-    </nav>
+    <div class="has-thin-border-bottom">
+        <div class="container container--large">
+            <nav class="actions-nav" aria-label="navigation actions">
+                <ul class="actions-nav_container">
+                    <li class="actions-nav_item">
+                        <a href="/ingredients/ajouter">Ajouter un ingrédient</a>
+                    </li>
+                    <li class="actions-nav_item">
+                        <a href="/recettes/ajouter">Ajouter une recette</a>
+                    </li>
+                    <li class="actions-nav_item">
+                        <a href="/recettes/ajouter">Se connecter</a>
+                    </li>
+                    <li class="actions-nav_item">
+                        <a href="/recettes/ajouter">Se déconnecter</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <nav class="main-nav has-thick-border-bottom" aria-label="navigation principale">
+            <div class="main-nav_logo is-mobile">
+                <a href="/" <%= locals.pageName === 'accueil' ? ' aria-current=page ' : '' %>>
+                    <img src="/img/cook-book-logo.svg" alt="Logo Cook Book by Fab" width="180" height="68">
+                    <span>Accueil</span>
+                </a>
+            </div>
+            <ul class="main-nav_container">
+                <li class="<%= locals.pageName === 'ingredients' ? 'is-active ' : '' %>main-nav_item">
+                    <a href="/ingredients" <%= locals.pageName === 'ingredients' ? ' aria-current=page ' : '' %>>Ingrédients</a>
+                </li>
+                <li class="main-nav_item main-nav_logo is-desktop">
+                    <a href="/" <%= locals.pageName === 'accueil' ? ' aria-current=page ' : '' %>>
+                        <img src="/img/cook-book-logo.svg" alt="Logo Cook Book by Fab" width="180" height="68">
+                        <span>Accueil</span>
+                    </a>
+                </li>
+                <li class="<%= locals.pageName === 'recettes' ? 'is-active ' : '' %>main-nav_item">
+                    <a href="/recettes" <%= locals.pageName === 'recettes' ? ' aria-current=page ' : '' %>>Recettes</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </header>

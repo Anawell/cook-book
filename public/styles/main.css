@@ -1,13 +1,49 @@
 
 @import 'shared/fonts.css';
 @import 'shared/variables.css';
+@import 'shared/utilities.css';
+@import 'shared/headings.css';
 @import 'shared/buttons.css';
 @import 'shared/form.css';
 @import 'shared/header.css';
+@import 'shared/footer.css';
 @import 'shared/recettes.css';
 
 *,
 *::before,
 *::after {
     box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+:root {
+    background: #fff;
+    font-size: 62.5%;
+    text-size-adjust: 100%;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: var(--color-dark);
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    color: inherit;
 }

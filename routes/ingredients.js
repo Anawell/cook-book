@@ -13,7 +13,8 @@ router.get('/', async (req, res) => {
         const ingredients = await Ingredient.find(searchOptions) 
         res.render('ingredients/index', { 
             ingredients: ingredients, 
-            searchOptions: req.query 
+            searchOptions: req.query,
+            pageName: 'ingredients'
         });
     } catch {
         res.redirect('/');

@@ -21,7 +21,8 @@ router.get('/', async (req, res) => {
         const recettes = await query.exec();
         res.render('recettes/index', {
             recettes: recettes,
-            searchOptions: req.query 
+            searchOptions: req.query,
+            pageName: 'recettes' 
         });
     } catch {
         res.redirect('/');
