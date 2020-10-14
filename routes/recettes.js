@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
         query = query.regex('category', new RegExp(req.query.category, 'i'));
     }
     try {
-        const recettes = await query.exec();
+        const recettes = await query.sort({ createdAt: 'desc'}).exec();
         res.render('recettes/index', {
             recettes: recettes,
             searchOptions: req.query,

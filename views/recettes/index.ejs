@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container section">
     <div class="grid grid--12">
         <h1 class="title--page">Recettes</h1>
     </div>
@@ -6,24 +6,24 @@
 
 <section class="bg--light search__section section--large">
     <div class="container container--2col">
-        <div>
-            <h2 class="title--section">Quel plat mitonner aujourd'hui?</h2>
+        <div class="padding-right--l">
+            <h2 class="title--section">Quel plat mitonner aujourd'hui&nbsp;?</h2>
             <p>Remplissez le formulaire ci-contre et trouvez la recette qui vous fera plaisir.</p>
         </div>
         <div>
             <form action="/recettes" method="GET">
                 <div class="form__item">
                     <label for="title">Quel est le titre de la recette ?</label>
-                    <input id="title" type="text" name="title" value="<%= searchOptions.title %>">
+                    <input id="title" type="text" placeholder="Exemple: Soupe aux choux" name="title" value="<%= searchOptions.title %>">
                 </div>
                 <div class="form__item">
-                    <label for="difficulty">Quel niveau de difficulté ?</label>
-                    <input id="difficulty" type="number" name="difficulty" min="0" max="3" value="<%= searchOptions.difficulty %>">
+                    <label for="difficulty">Quel niveau de difficulté&nbsp;? (du plus facile au plus difficile)</label>
+                    <input id="difficulty" type="number" name="difficulty" min="0" max="3" placeholder="Entrez un chiffre de 0 à 3" value="<%= searchOptions.difficulty %>">
                 </div>
                 <div class="form__item">
-                    <label for="category">Quelle catégorie ?</label>
+                    <label for="category">Quelle catégorie&nbsp;?</label>
                     <select name="category" id="category">
-                        <option selected value="">Choisissez</option>
+                        <option selected disabled> --- Choisissez ---</option>
                         <option value="Apéritif et buffet">Apéritif et buffet</option>
                         <option value="Entrée">Entrée</option>
                         <option value="Plat principal">Plat principal</option>
@@ -43,10 +43,8 @@
 </section>
 
 <section>
-    <div class="container section">
+    <div class="container section--pb thumbnails">
         <h2 class="title--section is-centered">Toutes les recettes</h2>
-        <% recettes.forEach(recette => { %> 
-            <%- include('../partials/thumbnails_grid.ejs', { recettes: recettes, large: true }) %> 
-        <% }) %> 
+        <%- include('../partials/thumbnails_grid.ejs', { recettes: recettes }) %> 
     </div>
 </section>

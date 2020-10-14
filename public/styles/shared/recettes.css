@@ -1,13 +1,30 @@
-:root {
-    --thumbnail-cover-width: 200px;
-    --thumbnail-cover-width-large: 325px;
-    --thumbnail-cover-aspect-ratio: 1;
+.recette__presentation {
+    border-bottom: var(--thick-border);
+    padding-bottom: calc(var(--space-unit) * 3);
+    text-align: center;
 }
 
-.thumbnail_grid {
-    
-} 
+.recette__presentation_ing {
+    display: inline-block;
+    border-top: var(--thin-border-accent);
+    border-bottom: var(--thin-border-accent);
+    padding: 0.33em 0 0.5em;
+}
 
-.thumbnail_grid--large {
+.recette__presentation_row {
+    display: flex;
+    justify-content: center;
+    padding-top: 1em;
+}
 
+.recette__presentation_item {
+    margin: 0 2em;
+}
+
+.recette__presentation_item p {
+    margin-top: 0;
+}
+
+.recette__actions {
+    border-top: var(--thin-border);
 }

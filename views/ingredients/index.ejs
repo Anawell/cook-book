@@ -1,20 +1,20 @@
-<div class="container">
+<div class="container section">
     <div class="grid grid--12">
         <h1 class="title--page">Ingrédients</h1>
     </div>
 </div>
 <section class="bg--light search__section section--large">
     <div class="container container--2col">
-        <div>
-            <h2 class="title--section">Comment cuisiner cet ingrédient ?</h2>
+        <div class="padding-right--l">
+            <h2 class="title--section">Comment cuisiner cet ingrédient&nbsp;?</h2>
             <p>Entrez dans le champ de recherche ci-contre le fruit ou le légume principal pour lequel vous aimeriez trouver une recette.</p>
         </div>
         <div>
             <form action="/ingredients" method="GET">
                 <div class="form__item search__item">
-                    <label for="search">Quel ingrédient recherchez-vous ?</label>
+                    <label for="search">Quel ingrédient recherchez-vous&nbsp;?</label>
                     <div class="search__input">
-                        <input id="search" type="text" name="name" value="<%= searchOptions.name %>">
+                        <input id="search" type="text" name="name" placeholder="Exemple: Potiron" value="<%= searchOptions.name %>">
                         <button class="btn btn--accent btn--search" type="submit">Rechercher</button>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
     </div>
 </section>
 <section>
-    <div class="container section">
+    <div class="container section--pb">
         <h2 class="title--section is-centered">Tous les ingrédients</h2>
         <% ingredients.forEach(ingredient => { %> 
             <div class="action__row">

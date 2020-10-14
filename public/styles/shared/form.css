@@ -38,6 +38,7 @@
 .form__item select {
     border: var(--thin-border);
     padding: 0.66em 1em;
+    font-family: 'Lato', sans-serif;
     font-size: 1.6rem;
 }
 
@@ -96,6 +97,20 @@
 
 .form__item input[type="range"]::-ms-fill-upper {  
   background-color: var(--color-mute);
+}
+
+/* ==========================================================================
+    Filepond drag and drop override
+    ========================================================================== */
+
+.form__item .filepond--root {
+    font-family: 'Lato';
+    color: #333;
+}
+
+.form__item .filepond--panel-root {
+    background-color: var(--color-accent-light);
+    
 }
 
 

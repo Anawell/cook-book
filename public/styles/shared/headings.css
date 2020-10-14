@@ -6,9 +6,18 @@ h3 {
 }   
 
 .title--page,
-.title--item {
+.title--item,
+.title--article,
+.title--category,
+.title--detail {
     font-family: 'Lato', sans-serif;
     text-transform: uppercase;
+}
+
+.title--section,
+.title--thumbnail,
+.title--ingredient {
+    font-family: 'Playfair Display', serif;
 }
 
 .title--page {
@@ -20,7 +29,37 @@ h3 {
     writing-mode: vertical-lr;  
 }
 
+.title--article {
+    margin: 0.5em 0 0.5em 0;  
+    font-size: 6.4rem;
+    font-weight: 900;
+    line-height: 120%;
+}
+
 .title--section {
     font-size: 3.9rem;
     line-height: 1.2;
+}
+
+.title--thumbnail {
+    font-size: 2.5rem;
+    line-height: 1.168;
+}
+
+.title--category {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.title--ingredient {
+    margin-bottom: 1em;
+    font-size: 2.4rem;
+    color: var(--color-accent);
+}
+
+.title--detail {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
 }

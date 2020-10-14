@@ -1,13 +1,11 @@
-<% thumbnailCoverClass = locals.large ? ' thumbnail_cover--large' : '' %> 
-<% thumbnailGridClass = locals.large ? ' thumbnail_grid--large' : '' %> 
-
-<div class="thumbnail_grid<%= thumbnailGridClass %>">
+<div class="thumbnails__grid">
     <% recettes.forEach(recette => { %> 
-        <a href="/recettes/<%= recette.slug %>">
-            <figure class="thumbnail_cover<%= thumbnailCoverClass %>" >
-                <img class="thumbnail_img" src="<%= recette.coverImagePath %> " alt="Illustration de la recette <%= recette.title %>">
-            <h3><%= recette.title %></h3>
+        <a class="thumbnail__item" href="/recettes/<%= recette.slug %>">
+            <figure class="thumbnail__cover" >
+                <img class="thumbnail__img" src="<%= recette.coverImagePath %> " alt="Illustration de la recette <%= recette.title %>">
             </figure>
+            <h3 class="thumbnail__title title--thumbnail"><%= recette.title %></h3>
+            <h4 class="thumbnail__category title--category"><%= recette.category %></h4>
         </a>
     <% }) %> 
 </div>

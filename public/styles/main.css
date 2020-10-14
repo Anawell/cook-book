@@ -7,7 +7,7 @@
 @import 'shared/form.css';
 @import 'shared/header.css';
 @import 'shared/footer.css';
-@import 'shared/ingredients.css';
+@import 'shared/thumbnails_grid.css';
 @import 'shared/recettes.css';
 
 *,
@@ -42,10 +42,15 @@ body {
     color: var(--color-dark);
 }
 
+figure {
+    margin: 0;
+}
+
 img {
     width: 100%;
 }
 
 a {
     color: inherit;
+    text-decoration: none;
 }

@@ -1,7 +1,13 @@
-<h1>Editer l'ingrédient</h1>
+<div class="container section">
+    <h1 class="title--section is-centered">Editer l'ingrédient</h1>
 
-<form action="/ingredients/<%= ingredient.slug %>?_method=PUT" method="POST">
-    <%- include('_form_fields.ejs') %> 
-    <a href="/ingredients/<%= ingredient.slug %>">Annuler</a>
-    <button type="submit">Enregistrer mes modifications</button>
-</form>
+    <div class="form__container">
+        <form action="/ingredients/<%= ingredient.slug %>?_method=PUT" method="POST">
+            <%- include('_form_fields.ejs') %> 
+           <div class="action__btns action__btns--right margin-top--m">
+            <a href="/ingredients/<%= ingredient.slug %>" class="btn btn--mute">Annuler</a>
+            <button type="submit" class="btn btn--primary">Enregistrer</button>
+           </div>
+        </form>
+    </div>
+</div>

@@ -1,7 +1,19 @@
-<h2><%= ingredient.name %></h2> 
-<a href="/ingredients/<%= ingredient.slug %>/editer">Editer</a>
-<%- include('../partials/delete_form.ejs', { url: `/ingredients/${ingredient.slug}`}) %> 
+<section>
+    <div class="container section">
+        <div class="action__row">
+            <h2 class="title--item"><%= ingredient.name %></h2> 
+            <div class="action__btns action__btns--right">
+                <a href="/ingredients/<%= ingredient.slug %>/editer" class="btn btn--primary">Editer</a>
+                <%- include('../partials/delete_form.ejs', { url: `/ingredients/${ingredient.slug}`}) %>
+            </div> 
+        </div>
+    </div>
+</section>
 <% if (recettesByIngredient.length > 0) { %> 
-    <h2>Recettes réalisées avec cet ingrédient</h2>
-    <%- include('../partials/thumbnails_grid.ejs', { recettes: recettesByIngredient }) %> 
+    <section>
+        <div class="container section thumbnails">
+            <h2 class="title--section is-centered">Recettes réalisées avec cet ingrédient</h2>
+            <%- include('../partials/thumbnails_grid.ejs', { recettes: recettesByIngredient }) %> 
+        </div>
+    </section>
 <% } %> 
