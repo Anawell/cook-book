@@ -1,10 +1,11 @@
-<div>
-    <label for="title">Titre de la recette</label>
-    <input id="title" type="text" name="title" value="<%= recette.title %>">
+<div class="form__item">
+    <label for="title" class="is-input-required">Titre de la recette</label>
+    <input id="title" type="text" name="title" placeholder="Exemple : Poulet au citron" value="<%= recette.title %>" autocomplete="off" required>
 </div>
-<div>
-    <label for="ingredient">Ingrédient principal de la recette</label>
-    <select name="ingredient" id="ingredient">
+<div class="form__item">
+    <label for="ingredient" class="is-input-required">Ingrédient principal de la recette</label>
+    <select name="ingredient" id="ingredient" required>
+        <option selected disabled>--- Choisissez ---</option>
     <% ingredients.forEach(ingredient => { %> 
         <% if (ingredient.id === recette.ingredient) { %> 
             <option selected value="<%= ingredient.id %>"><%= ingredient.name %></option>
@@ -14,9 +15,10 @@
     <% }); %> 
     </select>
 </div>
-<div>
-    <label for="category">Catégorie de la recette</label>
-    <select name="category" id="category">
+<div class="form__item">
+    <label for="category" class="is-input-required">Catégorie de la recette</label>
+    <select name="category" id="category" required>
+        <option selected disabled>--- Choisissez ---</option>
         <option value="Apéritif et buffet">Apéritif et buffet</option>
         <option value="Entrée">Entrée</option>
         <option value="Plat principal">Plat principal</option>
@@ -26,27 +28,31 @@
         <option value="Boisson">Boisson</option>
     </select>
 </div>
-<div>
-    <label for="personCount">Pour combien de personnes?</label>
-    <input id="personCount" type="number" name="personCount" min="1" value="<%= recette.personCount %>">
+<div class="form__row">
+    <div class="form__item form__item--no-grow">
+        <label for="cover" class="is-input-required">Image de la recette</label>
+        <input id="cover" type="file" name="cover" class="filepond" required>
+    </div>
+    <div>
+        <div class="form__item">
+            <label for="personCount" class="is-input-required">Pour combien de personnes?</label>
+            <input id="personCount" type="number" name="personCount" placeholder="Exemple : 4" min="1" value="<%= recette.personCount %>" required>
+        </div>
+        <div class="form__item">
+            <label for="timeCount" class="is-input-required">Temps total de la recette (en minutes)</label>
+            <input id="timeCount" type="number" name="timeCount" placeholder="Exemple : 55" min="1" value="<%= recette.timeCount %>" required>
+        </div> 
+        <div class="form__item">
+            <label for="difficultyCount" class="is-input-required">Difficulté de la recette (de très facile à difficile)</label>
+            <input id="difficultyCount" type="range" name="difficultyCount" min="0" max="3" value="<%= recette.difficultyCount %>" required>
+        </div>  
+    </div>
 </div>
-<div>
-    <label for="timeCount">Temps total de la recette (en minutes)</label>
-    <input id="timeCount" type="number" name="timeCount" min="1" value="<%= recette.timeCount %>">
+<div class="form__item">
+    <label for="listIngredients" class="is-input-required">Liste des ingrédients</label>
+    <textarea name="listIngredients" id="listIngredients" required><%= recette.listIngredients %></textarea>
 </div>
-<div>
-    <label for="difficultyCount">Difficulté de la recette (de très facile à difficile)</label>
-    <input id="difficultyCount" type="range" name="difficultyCount" min="0" max="3" value="<%= recette.difficultyCount %>">
-</div>
-<div>
-    <label for="cover">Image de la recette</label>
-    <input id="cover" type="file" name="cover" class="filepond">
-</div>
-<div>
-    <label for="listIngredients">Liste des ingrédients</label>
-    <textarea name="listIngredients" id="listIngredients"><%= recette.listIngredients %></textarea>
-</div>
-<div>
-    <label for="steps">Etapes de la recette</label>
+<div class="form__item">
+    <label for="steps" class="is-input-required" required>Etapes de la recette</label>
     <textarea name="steps" id="steps"><%= recette.steps %></textarea>
 </div>

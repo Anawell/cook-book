@@ -1,33 +1,52 @@
-<h1>Recettes</h1>
+<div class="container">
+    <div class="grid grid--12">
+        <h1 class="title--page">Recettes</h1>
+    </div>
+</div>
 
-<h2>Rechercher une recette</h2>
-<form action="/recettes" method="GET">
-    <div>
-        <label for="title">Quelle titre de recette ?</label>
-        <input id="title" type="text" name="title" value="<%= searchOptions.title %>">
+<section class="bg--light search__section section--large">
+    <div class="container container--2col">
+        <div>
+            <h2 class="title--section">Quel plat mitonner aujourd'hui?</h2>
+            <p>Remplissez le formulaire ci-contre et trouvez la recette qui vous fera plaisir.</p>
+        </div>
+        <div>
+            <form action="/recettes" method="GET">
+                <div class="form__item">
+                    <label for="title">Quel est le titre de la recette ?</label>
+                    <input id="title" type="text" name="title" value="<%= searchOptions.title %>">
+                </div>
+                <div class="form__item">
+                    <label for="difficulty">Quel niveau de difficulté ?</label>
+                    <input id="difficulty" type="number" name="difficulty" min="0" max="3" value="<%= searchOptions.difficulty %>">
+                </div>
+                <div class="form__item">
+                    <label for="category">Quelle catégorie ?</label>
+                    <select name="category" id="category">
+                        <option selected value="">Choisissez</option>
+                        <option value="Apéritif et buffet">Apéritif et buffet</option>
+                        <option value="Entrée">Entrée</option>
+                        <option value="Plat principal">Plat principal</option>
+                        <option value="Accompagnement">Accompagnement</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Confiserie">Confiserie</option>
+                        <option value="Boisson">Boisson</option>
+                    </select>
+                </div>
+            
+                <div class="action__btns action__btns--right margin-top--m">
+                    <button type="submit" class="btn btn--accent">Rechercher</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div>
-        <label for="difficulty">Quelle niveau de difficulté ?</label>
-        <input id="difficulty" type="number" name="difficulty" min="0" max="3" value="<%= searchOptions.difficulty %>">
-    </div>
-    <div>
-        <label for="category">Quelle catégorie ?</label>
-        <select name="category" id="category">
-            <option selected value="">Choisissez</option>
-            <option value="Apéritif et buffet">Apéritif et buffet</option>
-            <option value="Entrée">Entrée</option>
-            <option value="Plat principal">Plat principal</option>
-            <option value="Accompagnement">Accompagnement</option>
-            <option value="Dessert">Dessert</option>
-            <option value="Confiserie">Confiserie</option>
-            <option value="Boisson">Boisson</option>
-        </select>
-    </div>
-   
-    <button type="submit">Rechercher</button>
-</form>
+</section>
 
-<h2>Toutes les recettes</h2>
-<% recettes.forEach(recette => { %> 
-    <%- include('../partials/thumbnails_grid.ejs', { recettes: recettes, large: true }) %> 
-<% }) %> 
+<section>
+    <div class="container section">
+        <h2 class="title--section is-centered">Toutes les recettes</h2>
+        <% recettes.forEach(recette => { %> 
+            <%- include('../partials/thumbnails_grid.ejs', { recettes: recettes, large: true }) %> 
+        <% }) %> 
+    </div>
+</section>

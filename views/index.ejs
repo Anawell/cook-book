@@ -1,11 +1,14 @@
-<div class="grid grid--top">
-    <h1 class="title--page">Cook book</h1>
+<div class="container">
+    <div class="grid grid--12">
+        <h1 class="title--page">Cook book</h1>
+    </div>
 </div>
-
-<section>
+<section class="container">
     <h2 class="title--section is-centered">Les dernières recettes</h2>
 
-    <% recettes.forEach(recette => { %> 
-        <%- include('partials/thumbnails_grid.ejs', { recettes: recettes, large: true }) %> 
-    <% }) %> 
+    <div class="grid grid--12">
+        <% recettes.forEach(recette => { %> 
+            <%- include('partials/thumbnails_grid.ejs', { recettes: recettes, large: true }) %> 
+        <% }) %> 
+    </div>
 </section>

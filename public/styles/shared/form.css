@@ -1,0 +1,117 @@
+/* ==========================================================================
+    Layout
+    ========================================================================== */
+
+.form__container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.form__row {
+    display: flex;
+}
+
+.form__item {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.form__item--no-grow {
+    flex-grow: 0;
+    margin-right: 2em;
+}
+
+/* ==========================================================================
+    Input & labels
+    ========================================================================== */
+
+.form__item label {
+    margin: 2em 0 0.66em;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: initial;
+}
+
+.form__item input, 
+.form__item textarea,
+.form__item select {
+    border: var(--thin-border);
+    padding: 0.66em 1em;
+    font-size: 1.6rem;
+}
+
+.form__item input:focus,
+.form__item textarea:focus,
+.form__item select:focus,
+.form__item input:active,
+.form__item textarea:active,
+.form__item select:active {
+    border: 1px solid var(--color-accent);
+    outline: none;
+}
+
+.form__item input[type="range"]:focus,
+.form__item input[type="range"]:active {
+    border: 1px dashed var(--color-accent);
+}
+
+.form__item:focus-within label {
+    color: var(--color-accent);
+  }
+
+.form__item .is-input-required::after {
+    content: ' *';
+    color: var(--color-accent);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+    Placeholder
+    ========================================================================== */
+
+.form__item input::placeholder,
+.form__item textarea::placeholder {
+    color: var(--color-mute);
+}
+
+/* ==========================================================================
+    Input type range
+    ========================================================================== */
+
+/* TODO: do also for Chrome */
+
+.form__item input[type="range"]::-moz-range-progress {
+  background-color: var(--color-accent); 
+}
+
+.form__item input[type="range"]::-moz-range-track {  
+  background-color: var(--color-mute);
+}
+
+.form__item input[type="range"]::-ms-fill-lower {
+  background-color: var(--color-accent); 
+}
+
+.form__item input[type="range"]::-ms-fill-upper {  
+  background-color: var(--color-mute);
+}
+
+
+/* ==========================================================================
+    Search form
+    ========================================================================== */
+
+.search__section .title--section {
+    margin-top: 0.6em;
+}
+
+.search__input {
+    display: flex;
+    align-items: stretch;
+}
+
+.search__input input {
+    flex-grow: 1;
+}

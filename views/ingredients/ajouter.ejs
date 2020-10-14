@@ -1,7 +1,14 @@
-<h1>Ajouter un nouvel ingrédient</h1>
+<div class="container">
+    <h1 class="title--section is-centered">Ajouter un nouvel ingrédient</h1>
 
-<form action="/ingredients" method="POST">
-    <%- include('_form_fields.ejs') %> 
-    <a href="/ingredients">Annuler</a>
-    <button type="submit">Ajouter</button>
-</form>
+    <div class="form__container">
+        <form action="/ingredients" method="POST">
+            <%- include('_form_fields.ejs') %> 
+            
+            <div class="action__btns action__btns--right margin-top--m">
+                <a href="/ingredients" class="btn btn--mute">Annuler</a>
+                <button type="submit" class="btn btn--primary">Ajouter</button>
+            </div>
+        </form>
+    </div>
+</div>

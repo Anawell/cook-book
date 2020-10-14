@@ -1,12 +1,17 @@
 :root {
     /* Colors */
     --color-base-dark: 0, 0%;
-    --color-dark: hsla(var(--color-base-dark), 13%, 1);
-    --color-med: hsla(var(--color-base-dark), 46%, 1);
-    --color-light: hsla(var(--color-base-dark), 98%, 1);
+    --color-dark: hsl(var(--color-base-dark), 13%);
+    --color-dark-action: hsl(var(--color-base-dark), 30%);
+    --color-med: hsl(var(--color-base-dark), 46%);
+    --color-mute: hsl(var(--color-base-dark), 66%);
+    --color-light: hsl(var(--color-base-dark), 98%);
 
     --color-base-accent: 174, 100%;
-    --color-accent: hsla(var(--color-base-accent), 31%, 1);
+    --color-accent: hsl(var(--color-base-accent), 31%);
+    --color-accent-action: hsl(var(--color-base-accent), 25%);
+
+    --color-danger: hsl(348, 100%, 55%);
 
     /* Spacing */
     --space-unit: 1em;

@@ -4,8 +4,10 @@
 <div class="thumbnail_grid<%= thumbnailGridClass %>">
     <% recettes.forEach(recette => { %> 
         <a href="/recettes/<%= recette.slug %>">
-            <img class="thumbnail_cover<%= thumbnailCoverClass %>" src="<%= recette.coverImagePath %> " alt="Illustration de la recette <%= recette.title %>">
+            <figure class="thumbnail_cover<%= thumbnailCoverClass %>" >
+                <img class="thumbnail_img" src="<%= recette.coverImagePath %> " alt="Illustration de la recette <%= recette.title %>">
             <h3><%= recette.title %></h3>
+            </figure>
         </a>
     <% }) %> 
 </div>

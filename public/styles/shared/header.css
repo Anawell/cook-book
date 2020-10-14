@@ -39,17 +39,13 @@ nav a:focus {
     color: var(--color-accent);
 }
 
-nav .is-active a {
-    color: var(--color-med);
-}
-
 
 /* ==========================================================================
     Spacing
     ========================================================================== */
 
 .main-nav {
-    padding: calc(var(--space-unit) * 2) 0;
+    padding: calc(var(--space-unit) * 1) 0;
 }
 
 .actions-nav_item {
@@ -69,11 +65,26 @@ nav .is-active a {
 
 .main-nav_item a {
     font-weight: 700;
+    position: relative;
 }
 
 .actions-nav_item a {
     font-size: 1.4rem;
     font-weight: 400;
+}
+
+.main-nav_item.is-active a:before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: -8px;
+    right: -8px;
+    transform: rotate(-3deg);
+    height: 100%;
+    background: url('../../img/trace-light-green.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 /* ==========================================================================

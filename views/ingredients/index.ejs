@@ -1,16 +1,40 @@
-<h1>Ingrédients</h1>
-
-<h2>Rechercher un ingrédient</h2>
-<form action="/ingredients" method="GET">
-    <label for="search">Quel ingrédient?</label>
-    <input id="search" type="text" name="name" value="<%= searchOptions.name %>">
-    <button type="submit">Rechercher</button>
-</form>
-
-<h2>Tous les ingrédients</h2>
-<% ingredients.forEach(ingredient => { %> 
-    <h3><%= ingredient.name %></h3>
-    <a href="/ingredients/<%= ingredient.slug %>">Afficher</a>
-    <a href="/ingredients/<%= ingredient.slug %>/editer">Editer</a>
-    <%- include('../partials/delete_form.ejs', { url: `/ingredients/${ingredient.slug}`}) %> 
-<% }) %> 
+<div class="container">
+    <div class="grid grid--12">
+        <h1 class="title--page">Ingrédients</h1>
+    </div>
+</div>
+<section class="bg--light search__section section--large">
+    <div class="container container--2col">
+        <div>
+            <h2 class="title--section">Comment cuisiner cet ingrédient ?</h2>
+            <p>Entrez dans le champ de recherche ci-contre le fruit ou le légume principal pour lequel vous aimeriez trouver une recette.</p>
+        </div>
+        <div>
+            <form action="/ingredients" method="GET">
+                <div class="form__item search__item">
+                    <label for="search">Quel ingrédient recherchez-vous ?</label>
+                    <div class="search__input">
+                        <input id="search" type="text" name="name" value="<%= searchOptions.name %>">
+                        <button class="btn btn--accent btn--search" type="submit">Rechercher</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container section">
+        <h2 class="title--section is-centered">Tous les ingrédients</h2>
+        <% ingredients.forEach(ingredient => { %> 
+            <div class="action__row">
+                <h3 class="title--item"><%= ingredient.name %></h3>
+                <div class="action__btns action__btns--right">
+                    <a href="/ingredients/<%= ingredient.slug %>" class="btn btn--primary">Afficher</a>
+                    <a href="/ingredients/<%= ingredient.slug %>/editer" class="btn btn--secondary">Editer</a>
+                    <%- include('../partials/delete_form.ejs', { url: `/ingredients/${ingredient.slug}`}) %> 
+                </div>
+            </div>
+        
+        <% }) %> 
+    </div>
+</section>

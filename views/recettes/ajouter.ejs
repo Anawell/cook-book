@@ -1,7 +1,12 @@
-<h1>Ajouter une nouvelle recette</h1>
-
-<form action="/recettes" method="POST">
-    <%- include('_form_fields.ejs') %> 
-    <a href="/recettes">Annuler</a>
-    <button type="submit">Ajouter</button>
-</form>
+<div class="container">
+    <h1 class="title--section is-centered">Ajouter une nouvelle recette</h1>
+    <div class="form__container">
+        <form action="/recettes" method="POST">
+            <%- include('_form_fields.ejs') %> 
+            <div class="action__btns action__btns--right margin-top--m">
+                <a href="/recettes" class="btn btn--mute">Annuler</a>
+                <button type="submit" class="btn btn--primary">Ajouter</button>
+            </div>
+        </form>
+    </div>
+</div>

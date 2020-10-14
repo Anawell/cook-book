@@ -1,0 +1,13 @@
+:root {
+    --thumbnail-cover-width: 200px;
+    --thumbnail-cover-width-large: 325px;
+    --thumbnail-cover-aspect-ratio: 1;
+}
+
+.thumbnail_grid {
+    
+} 
+
+.thumbnail_grid--large {
+
+}
