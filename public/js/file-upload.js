@@ -8,8 +8,8 @@ FilePond.registerPlugin(
 // Set the ratio of the preview
 FilePond.setOptions({
     stylePanelAspectRatio: 600 / 400,
-    imageResizeTargetWidth: 400,
-    imageResizeTargetHeight: 600
+    imageResizeTargetWidth: 1000,
+    imageResizeTargetHeight: 1500
 })
 
 // init FilePond
