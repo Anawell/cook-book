@@ -14,7 +14,8 @@ router.get('/', async (req, res) => {
         res.render('ingredients/index', { 
             ingredients: ingredients, 
             searchOptions: req.query,
-            pageName: 'ingredients'
+            pageName: 'ingredients',
+            title: 'Les ingrédients de Fab'
         });
     } catch {
         res.redirect('/');
@@ -27,7 +28,8 @@ router.get('/', async (req, res) => {
 // La route de creation d'un objet doit toujours être en premier car sinon le param /:id peut penser que /new est un id
 router.get('/ajouter', (req, res) => {
     res.render('ingredients/ajouter', { 
-        ingredient: new Ingredient 
+        ingredient: new Ingredient,
+        title: 'Ajouter un ingrédient' 
     });
 });
 
@@ -45,7 +47,8 @@ router.post('/', async (req, res) => {
         console.log(e);
         res.render('ingredients/ajouter', { 
             ingredient: ingredient,
-            errorMessage: 'Erreur lors de la création du nouvel ingrédient' 
+            errorMessage: 'Erreur lors de la création du nouvel ingrédient',
+            title: 'Erreur' 
         })
     }
 });
@@ -59,7 +62,8 @@ router.get('/:slug', async (req, res) => { // : signifie qu'il va y avoir après
         // Ici on pourrait mettre .limit(n) avant .exec()
         res.render('ingredients/afficher', {
             ingredient: ingredient,
-            recettesByIngredient: recettes // recettesByIngredient est la variable que l'on utilise dans la vue "Afficher" de Ingredients
+            recettesByIngredient: recettes, // recettesByIngredient est la variable que l'on utilise dans la vue "Afficher" de Ingredients
+            title: ingredient.name
         })
     } catch {
        res.redirect('/');
@@ -72,7 +76,8 @@ router.get('/:slug/editer', async (req, res) => {
     try {
         const ingredient = await Ingredient.findOne({ slug: req.params.slug });
         res.render('ingredients/editer', { 
-            ingredient: ingredient 
+            ingredient: ingredient,
+            title: `Editer l'ingrédient ${ingredient.name}`
         });  
     } catch {
         res.redirect('/ingredients');
@@ -95,8 +100,9 @@ router.put('/:slug', async (req, res) => {
         } else {
             res.render('ingredients/editer', { 
                 ingredient: ingredient,
-                errorMessage: 'Erreur lors de la modification du nouvel ingrédient' 
-            })
+                errorMessage: 'Erreur lors de la modification du nouvel ingrédient',
+                title: 'Erreur'
+            });
         }
     } 
 });

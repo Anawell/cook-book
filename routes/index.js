@@ -7,11 +7,12 @@ router.get('/', async (req, res) => {
     try {
         recettes = await Recette.find().sort({ createdAt: 'desc'}).limit(6).exec();
     } catch {
-        books = []
+        recettes = []
     }
     res.render('index', {
         recettes: recettes,
-        pageName: 'accueil'
+        pageName: 'accueil',
+        title: 'Le livre de recettes de Fab'
     }); 
 });
 

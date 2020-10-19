@@ -22,7 +22,8 @@ router.get('/', async (req, res) => {
         res.render('recettes/index', {
             recettes: recettes,
             searchOptions: req.query,
-            pageName: 'recettes' 
+            pageName: 'recettes',
+            title: 'Les recettes de Fab' 
         });
     } catch {
         res.redirect('/');
@@ -63,7 +64,8 @@ router.get('/:slug', async (req, res) => {
         const recette = await Recette.findOne({ slug: req.params.slug }).populate('ingredient').exec(); 
         // si on ne met pas le .populate, la DB renvoie l'id de l'ingredient, et pas son nom! Avec populate, il renvoie un objet contenant toutes les infos de l'ingredient
         res.render('recettes/afficher', {
-            recette: recette
+            recette: recette,
+            title: recette.title
         })
     } catch {
         res.redirect('/');
@@ -120,7 +122,8 @@ router.delete('/:slug', async (req, res) => {
         if (recette != null) {
             res.render('recettes/afficher', {
                 recette: recette,
-                errorMessage: 'Impossible de supprimer la recette'
+                errorMessage: 'Impossible de supprimer la recette',
+                title: 'Erreur'
             });
         } else {
             res.redirect('/');
@@ -129,21 +132,23 @@ router.delete('/:slug', async (req, res) => {
 });
 
 async function renderNewPage(res, recette, hasError = false) {
-    renderFormPage(res, recette, 'ajouter', hasError);
+    renderFormPage(res, recette, 'ajouter', 'Ajouter une recette', hasError);
 }
 
 async function renderEditPage(res, recette, hasError = false) {
-    renderFormPage(res, recette, 'editer', hasError);
+    renderFormPage(res, recette, 'editer', 'Editer la recette', hasError);
 }
 
-async function renderFormPage(res, recette, form, hasError = false) {
+async function renderFormPage(res, recette, form, seoTitle, hasError = false) {
     try {
         const ingredients = await Ingredient.find({});
         const params = {
             ingredients: ingredients,
-            recette: recette
+            recette: recette,
+            title: seoTitle
         }
         if (hasError) {
+            params.title = 'Erreur';
             if (form === 'editer') {
                 params.errorMessage = `Erreur pendant l'édition de la recette`;
             } else if (form === 'ajouter') {

@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes recettes</title>
+    <% if (locals.title != null) { %> 
+        <title><%= locals.title %> | Cook Book by Fab</title>
+    <% } else { %>
+        <title>Les recettes de Fab | Cook Book by Fab</title> 
+    <% } %> 
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
     <%- include('../partials/header.ejs') %>
-    <%- include('../partials/error_message.ejs') %>
+    
     <main>
+        <div class="container">
+            <%- include('../partials/error_message.ejs') %>
+        </div>
         <%- body %>
     </main>    
     <%- include('../partials/footer.ejs') %>
