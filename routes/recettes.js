@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         query = query.regex('title', new RegExp(req.query.title, 'i')); // 'title' correspond au nom de la colonne dans la DB
     }
     if (req.query.difficulty != null && req.query.difficulty !== '') {
-        query = query.where('difficultyCount', req.query.difficulty);
+        query = query.regex('difficulty', new RegExp(req.query.difficulty, 'i'));
     }
     if (req.query.category != null && req.query.category !== '') {
         query = query.regex('category', new RegExp(req.query.category, 'i'));
@@ -45,7 +45,7 @@ router.post('/', async (req, res) => {
         category: req.body.category,
         personCount: req.body.personCount,
         timeCount: req.body.timeCount,
-        difficultyCount: req.body.difficultyCount,
+        difficulty: req.body.difficulty,
         ingredient: req.body.ingredient,
         listIngredients: sanitizeHtml(req.body.listIngredients, {
             allowedTags: [ 'ul', 'li' ],
@@ -100,7 +100,7 @@ router.put('/:slug', async (req, res) => {
         recette.category = req.body.category;
         recette.personCount = req.body.personCount;
         recette.timeCount = req.body.timeCount;
-        recette.difficultyCount = req.body.difficultyCount;
+        recette.difficulty = req.body.difficulty;
         recette.ingredient = req.body.ingredient;
         recette.listIngredients = req.body.listIngredients;
         recette.steps = req.body.steps;

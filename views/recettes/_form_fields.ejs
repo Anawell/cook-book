@@ -17,14 +17,11 @@
 <div class="form__item">
     <label for="category" class="is-input-required">Catégorie de la recette</label>
     <select name="category" id="category" required>
-        <option selected disabled>--- Choisissez ---</option>
-        <option value="Apéritif et buffet">Apéritif et buffet</option>
-        <option value="Entrée">Entrée</option>
-        <option value="Plat principal">Plat principal</option>
-        <option value="Accompagnement">Accompagnement</option>
-        <option value="Dessert">Dessert</option>
-        <option value="Confiserie">Confiserie</option>
-        <option value="Boisson">Boisson</option>
+        <% const categoryOptions = ['Apéritif et buffet', 'Entrée', 'Plat principal', 'Accompagnement', 'Dessert', 'Confiserie', 'Boisson']; %> 
+        <% categoryOptions.forEach(option => { %> 
+            <% let selected = ( recette.category === option ) ? "selected" : ""; %> 
+            <option value="<%= option %>" <%=selected %>><%= option %></option>
+        <% }) %>
     </select>
 </div>
 <div class="form__row">
@@ -33,11 +30,11 @@
             <label for="cover" class="is-input-required">Image de la recette</label>
             <input id="cover" type="file" name="cover" class="filepond" required>
         <% } else { %>
-            <label for="cover">Image de la recette (déjà chargée)</label>
+            <label for="cover">Image déjà chargée</label>
             <input id="cover" type="file" name="cover" class="filepond">
         <% } %> 
     </div>
-    <div>
+    <div class="form__item--grow">
         <div class="form__item">
             <label for="personCount" class="is-input-required">Pour combien de personnes?</label>
             <input id="personCount" type="number" name="personCount" placeholder="Exemple : 4" min="1" value="<%= recette.personCount %>" required>
@@ -47,8 +44,14 @@
             <input id="timeCount" type="number" name="timeCount" placeholder="Exemple : 55" min="1" value="<%= recette.timeCount %>" required>
         </div> 
         <div class="form__item">
-            <label for="difficultyCount" class="is-input-required">Difficulté de la recette (de très facile à difficile)</label>
-            <input id="difficultyCount" type="range" name="difficultyCount" min="0" max="3" value="<%= recette.difficultyCount %>" required>
+            <label for="difficulty" class="is-input-required">Difficulté de la recette</label>
+            <select name="difficulty" id="difficulty">
+                <% const difficultyOptions = ['Simplissime', 'Facile', 'Moyenne', 'Difficile', 'Niveau grand chef']; %> 
+                <% difficultyOptions.forEach(option => { %> 
+                    <% let selected = ( recette.difficulty === option ) ? "selected" : ""; %> 
+                    <option value="<%= option %>" <%=selected %>><%= option %></option>
+                <% }) %>
+            </select>
         </div>  
     </div>
 </div>

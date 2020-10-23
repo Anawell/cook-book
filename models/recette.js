@@ -11,8 +11,10 @@ const recetteSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    difficultyCount: {
-        type: Number,
+    difficulty: {
+        type: String,
+        default: 'Très facile',
+        enum: ['Simplissime', 'Facile', 'Moyenne', 'Difficile', 'Niveau grand chef' ],
         required: true
     },
     personCount: {

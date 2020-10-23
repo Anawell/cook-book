@@ -17,24 +17,29 @@
         <div>
             <form action="/recettes" method="GET">
                 <div class="form__item">
-                    <label for="title">Quel est le titre de la recette ?</label>
+                    <label for="title">Quel est le titre de la recette&nbsp;?</label>
                     <input id="title" type="text" placeholder="Exemple: Soupe aux choux" name="title" value="<%= searchOptions.title %>">
                 </div>
                 <div class="form__item">
-                    <label for="difficulty">Quel niveau de difficulté&nbsp;? (du plus facile au plus difficile)</label>
-                    <input id="difficulty" type="number" name="difficulty" min="0" max="3" placeholder="Entrez un chiffre de 0 à 3" value="<%= searchOptions.difficulty %>">
+                    <label for="difficulty">Quel niveau de difficulté&nbsp;?</label>
+                    <select name="difficulty" id="difficulty">
+                        <option value='' <%= searchOptions.difficulty ? '' : 'selected'%>>--- Choisissez ---</option>
+                        <% const difficultyOptions = ['Simplissime', 'Facile', 'Moyenne', 'Difficile', 'Niveau grand chef']; %> 
+                        <% difficultyOptions.forEach(option => { %> 
+                            <% let selected = ( searchOptions.difficulty === option ) ? "selected" : ""; %>
+                            <option value="<%= option %>" <%=selected %>><%= option %></option>
+                        <% }) %>
+                    </select>
                 </div>
                 <div class="form__item">
                     <label for="category">Quelle catégorie&nbsp;?</label>
                     <select name="category" id="category">
-                        <option selected disabled> --- Choisissez ---</option>
-                        <option value="Apéritif et buffet">Apéritif et buffet</option>
-                        <option value="Entrée">Entrée</option>
-                        <option value="Plat principal">Plat principal</option>
-                        <option value="Accompagnement">Accompagnement</option>
-                        <option value="Dessert">Dessert</option>
-                        <option value="Confiserie">Confiserie</option>
-                        <option value="Boisson">Boisson</option>
+                        <option value='' <%= searchOptions.category ? '' : 'selected'%>>--- Choisissez ---</option>
+                        <% const categoryOptions = ['Apéritif et buffet', 'Entrée', 'Plat principal', 'Accompagnement', 'Dessert', 'Confiserie', 'Boisson']; %> 
+                        <% categoryOptions.forEach(option => { %> 
+                            <% let selected = ( searchOptions.category === option ) ? "selected" : ""; %>
+                            <option value="<%= option %>" <%=selected %>><%= option %></option>
+                        <% }) %>
                     </select>
                 </div>
             
