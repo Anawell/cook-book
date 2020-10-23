@@ -28,3 +28,44 @@
 .recette__actions {
     border-top: var(--thin-border);
 }
+
+.recette__details_ingredients ul,
+.recette__details_ingredients ol {
+    padding-left: 1.2em;
+}
+
+.recette__details_ingredients li,
+.recette__steps li {
+    margin-bottom: 1em;
+}
+
+.recette__steps ol {
+    counter-reset: li;
+    list-style: none;
+    padding-left: 0;
+}
+
+.recette__steps li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 4em;
+    min-height: 3em;
+}
+
+.recette__steps li::before {
+    content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -4em;
+    width: 3em;
+    height: 3em;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    font-weight: 700;
+    color: var(--color-accent);
+
+}

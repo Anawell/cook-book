@@ -29,16 +29,19 @@
 <section>
     <div class="container section--pb">
         <h2 class="title--section is-centered">Tous les ingrédients</h2>
-        <% ingredients.forEach(ingredient => { %> 
-            <div class="action__row">
-                <h3 class="title--item"><%= ingredient.name %></h3>
-                <div class="action__btns action__btns--right">
-                    <a href="/ingredients/<%= ingredient.slug %>" class="btn btn--primary">Afficher</a>
-                    <a href="/ingredients/<%= ingredient.slug %>/editer" class="btn btn--secondary">Editer</a>
-                    <%- include('../partials/delete_form.ejs', { url: `/ingredients/${ingredient.slug}`}) %> 
+        <% if (ingredients.length > 0) { %>
+            <% ingredients.forEach(ingredient => { %> 
+                <div class="action__row">
+                    <h3 class="title--item"><%= ingredient.name %></h3>
+                    <div class="action__btns action__btns--right">
+                        <a href="/ingredients/<%= ingredient.slug %>" class="btn btn--primary">Afficher</a>
+                        <a href="/ingredients/<%= ingredient.slug %>/editer" class="btn btn--secondary">Editer</a>
+                        <%- include('../partials/delete_form.ejs', { url: `/ingredients/${ingredient.slug}` }) %> 
+                    </div>
                 </div>
-            </div>
-        
-        <% }) %> 
+            <% }) %> 
+        <% } else { %>
+            <p class="is-centered">Aucun ingrédient n'a encore été créé...</p>
+        <% } %>       
     </div>
 </section>

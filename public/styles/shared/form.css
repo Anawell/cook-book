@@ -130,3 +130,12 @@
 .search__input input {
     flex-grow: 1;
 }
+
+/* ==========================================================================
+    CK Editor override
+    ========================================================================== */
+
+.form__item .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+    box-shadow: none;
+    border: 1px solid var(--color-accent);
+}

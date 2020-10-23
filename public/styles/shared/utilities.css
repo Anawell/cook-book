@@ -3,15 +3,21 @@
    ========================================================================== */
 
 .container {
+    margin: auto;
     width: 100%;
     max-width: 1140px;
-    margin: auto;
     padding-left: calc(var(--space-unit) * 1);
     padding-right: calc(var(--space-unit) * 1);
 }
 
 .container--large {
+    margin: auto;
     max-width: 1440px;
+}
+
+.container--small {
+    margin: auto;
+    max-width: 660px;
 }
 
 

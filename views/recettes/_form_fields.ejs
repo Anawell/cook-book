@@ -5,9 +5,8 @@
 <div class="form__item">
     <label for="ingredient" class="is-input-required">Ingrédient principal de la recette</label>
     <select name="ingredient" id="ingredient" required>
-        <option selected disabled>--- Choisissez ---</option>
     <% ingredients.forEach(ingredient => { %> 
-        <% if (ingredient.id === recette.ingredient) { %> 
+        <% if (ingredient.id == recette.ingredient) { %> 
             <option selected value="<%= ingredient.id %>"><%= ingredient.name %></option>
         <% } else { %>
             <option value="<%= ingredient.id %>"><%= ingredient.name %></option>
@@ -30,8 +29,13 @@
 </div>
 <div class="form__row">
     <div class="form__item form__item--no-grow">
-        <label for="cover" class="is-input-required">Image de la recette</label>
-        <input id="cover" type="file" name="cover" class="filepond" required>
+        <% if (coverRequired) { %> 
+            <label for="cover" class="is-input-required">Image de la recette</label>
+            <input id="cover" type="file" name="cover" class="filepond" required>
+        <% } else { %>
+            <label for="cover">Image de la recette (déjà chargée)</label>
+            <input id="cover" type="file" name="cover" class="filepond">
+        <% } %> 
     </div>
     <div>
         <div class="form__item">
@@ -50,9 +54,9 @@
 </div>
 <div class="form__item">
     <label for="listIngredients" class="is-input-required">Liste des ingrédients</label>
-    <textarea name="listIngredients" id="listIngredients" required><%= recette.listIngredients %></textarea>
+    <textarea id="editor_ingredients" name="listIngredients" id="listIngredients"><%= recette.listIngredients %></textarea>
 </div>
 <div class="form__item">
-    <label for="steps" class="is-input-required" required>Etapes de la recette</label>
-    <textarea name="steps" id="steps"><%= recette.steps %></textarea>
+    <label for="steps" class="is-input-required">Etapes de la recette</label>
+    <textarea id="editor_steps" name="steps" id="steps"><%= recette.steps %></textarea>
 </div>

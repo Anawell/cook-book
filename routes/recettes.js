@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const sanitizeHtml = require('sanitize-html');
 const Recette = require('../models/recette');
 const Ingredient = require('../models/ingredient');
+
 
 const imageMimeTypes = ['image/jpeg', 'image/png'];
 
@@ -45,8 +47,14 @@ router.post('/', async (req, res) => {
         timeCount: req.body.timeCount,
         difficultyCount: req.body.difficultyCount,
         ingredient: req.body.ingredient,
-        listIngredients: req.body.listIngredients,
-        steps: req.body.steps
+        listIngredients: sanitizeHtml(req.body.listIngredients, {
+            allowedTags: [ 'ul', 'li' ],
+            allowedAttributes: {}
+        }),
+        steps: sanitizeHtml(req.body.steps, {
+            allowedTags: [ 'ol', 'li' ],
+            allowedAttributes: {}
+        })
     })
     saveCover(recette, req.body.cover);
     try {
@@ -145,7 +153,11 @@ async function renderFormPage(res, recette, form, seoTitle, hasError = false) {
         const params = {
             ingredients: ingredients,
             recette: recette,
-            title: seoTitle
+            title: seoTitle,
+            coverRequired: false
+        }
+        if (form === 'ajouter') {
+            params.coverRequired = true;
         }
         if (hasError) {
             params.title = 'Erreur';
@@ -155,8 +167,7 @@ async function renderFormPage(res, recette, form, seoTitle, hasError = false) {
                 params.errorMessage = `Erreur pendant la création de la recette`;
             } else {
                 params.errorMessage = `Erreur pendant l'exécution du script`;
-            }
-            
+            }   
         }
         res.render(`recettes/${form}`, params);
     } catch {

@@ -1,11 +1,15 @@
-<div class="thumbnails__grid">
-    <% recettes.forEach(recette => { %> 
-        <a class="thumbnail__item" href="/recettes/<%= recette.slug %>">
-            <figure class="thumbnail__cover" >
-                <img class="thumbnail__img" src="<%= recette.coverImagePath %> " alt="Illustration de la recette <%= recette.title %>">
-            </figure>
-            <h3 class="thumbnail__title title--thumbnail"><%= recette.title %></h3>
-            <h4 class="thumbnail__category title--category"><%= recette.category %></h4>
-        </a>
-    <% }) %> 
-</div>
+<% if (recettes.length > 0) { %>
+    <div class="thumbnails__grid">
+        <% recettes.forEach(recette => { %> 
+            <a class="thumbnail__item" href="/recettes/<%= recette.slug %>">
+                <figure class="thumbnail__cover" >
+                    <img class="thumbnail__img" src="<%= recette.coverImagePath %> " alt="Illustration de la recette <%= recette.title %>">
+                </figure>
+                <h3 class="thumbnail__title title--thumbnail"><%= recette.title %></h3>
+                <h4 class="thumbnail__category title--category"><%= recette.category %></h4>
+            </a>
+        <% }) %>  
+    </div>
+<% } else { %>
+    <p class="is-centered">Aucune recette n'a encore été créée...</p>
+<% } %>

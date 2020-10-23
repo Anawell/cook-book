@@ -4,7 +4,8 @@ const slugify = require('slugify');
 const recetteSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     category: {
         type: String,
