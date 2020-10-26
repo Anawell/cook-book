@@ -58,6 +58,7 @@ const recetteSchema = new mongoose.Schema({
     }
 });
 
+
 recetteSchema.virtual('coverImagePath').get(function() { // permet d'ajouter des propriétés virtuelles à notre modèle. Le nom de la nouvelle variable est la string en param de la fonction virtual
     if (this.coverImage != null && this.coverImageType != null) { // si une image existe, on veut retourner son path
         return `data:${this.coverImageType};charset=utf-8;base64,${this.coverImage.toString('base64')}`;

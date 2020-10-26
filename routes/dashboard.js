@@ -10,7 +10,7 @@ router.get('/', ensureAuthenticated, async (req, res) => {
     } catch {
         recettes = []
     }
-    res.render('dashboard', {
+    res.render('dashboard/index', {
         recettes: recettes,
         pageName: 'dashboard',
         title: 'Tableau de bord',
