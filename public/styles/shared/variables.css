@@ -13,6 +13,7 @@
     --color-accent-light: hsla(var(--color-base-accent), 31%, 0.2);
 
     --color-danger: hsl(348, 100%, 55%);
+    --color-danger-light: hsla(348, 100%, 55%, 0.1);
 
     /* Spacing */
     --space-unit: 1em;

@@ -1,6 +1,7 @@
 <div class="container section--pb">
     <h1 class="title--section is-centered">Ajouter une nouvelle recette</h1>
     <div class="form__container">
+        <%- include('../partials/alert_message.ejs') %>
         <form action="/recettes" method="POST">
             <%- include('_form_fields.ejs') %> 
             <div class="action__btns action__btns--right margin-top--m">

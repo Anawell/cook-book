@@ -1,18 +1,20 @@
 const express = require('express');
 const router = express.Router();
+const { ensureAuthenticated } = require('../auth-config');
 const Recette = require('../models/Recette');
 
-router.get('/', async (req, res) => { 
+router.get('/', ensureAuthenticated, async (req, res) => { 
     let recettes; 
     try {
         recettes = await Recette.find().sort({ createdAt: 'desc'}).limit(6).exec();
     } catch {
         recettes = []
     }
-    res.render('index', {
+    res.render('dashboard', {
         recettes: recettes,
-        pageName: 'accueil',
-        title: 'Le livre de recettes de Fab'
+        pageName: 'dashboard',
+        title: 'Tableau de bord',
+        username: req.user.username
     }); 
 });
 

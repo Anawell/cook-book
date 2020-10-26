@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const sanitizeHtml = require('sanitize-html');
-const Recette = require('../models/recette');
-const Ingredient = require('../models/ingredient');
+const Recette = require('../models/Recette');
+const Ingredient = require('../models/Ingredient');
 
 
 const imageMimeTypes = ['image/jpeg', 'image/png'];

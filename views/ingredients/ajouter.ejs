@@ -1,7 +1,7 @@
 <div class="container section">
     <h1 class="title--section is-centered">Ajouter un nouvel ingrédient</h1>
-
     <div class="form__container">
+        <%- include('../partials/alert_message.ejs') %>
         <form action="/ingredients" method="POST">
             <%- include('_form_fields.ejs') %> 
             

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-const Recette = require('./recette');
+const Recette = require('./Recette');
 
 const ingredientSchema = new mongoose.Schema({
     name: {

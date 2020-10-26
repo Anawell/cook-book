@@ -1,7 +1,7 @@
 <div class="container section--pb">
     <h1 class="title--section is-centered">Editer ma recette</h1>
-
     <div class="form__container">
+        <%- include('../partials/alert_message.ejs') %>
         <form action="/recettes/<%= recette.slug %>?_method=PUT" method="POST">
             <%- include('_form_fields.ejs') %> 
             <div class="action__btns--right action__btns margin-top--m">

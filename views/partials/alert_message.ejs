@@ -1,0 +1,21 @@
+<% if (locals.errorMessage != null) { %> 
+    <div class="is-error" role="alert"><%= errorMessage %></div> 
+<% } %> 
+
+<% if (typeof errors != 'undefined') { %>
+    <% errors.forEach(function(error) { %>
+        <div class="is-error" role="alert"><%= error.message %></div>
+    <% }); %> 
+<% } %> 
+
+<% if (success_message != '') { %>
+    <div class="is-success" role="alert"><%= success_message %></div>
+<% } %> 
+
+<% if (error_message != '') { %>
+    <div class="is-error" role="alert"><%= error_message %></div>
+<% } %> 
+
+<% if (error != '') { %>
+    <div class="is-error" role="alert"><%= error %></div>
+<% } %> 

@@ -113,6 +113,14 @@
    Spacing
    ========================================================================== */
 
+.margin-top--xl {
+    margin-top: calc(var(--space-unit) * 6);
+}
+
+.margin-top--l {
+    margin-top: calc(var(--space-unit) * 4);
+}
+
 .margin-top--m {
     margin-top: calc(var(--space-unit) * 2);
 }
@@ -136,4 +144,23 @@
 
 .is-link--body:hover {
     background-size: 100% 90%;
+}
+
+/* ==========================================================================
+   Messages alerts
+   ========================================================================== */
+
+.is-error,
+.is-success {
+    margin-top: 1em;
+    padding: 0.66em 1em;
+    text-align: center;
+}
+
+.is-error {
+    background-color: var(--color-danger-light);
+}
+
+.is-success {
+    background-color: var(--color-accent-light);
 }

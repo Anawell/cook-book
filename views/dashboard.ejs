@@ -1,0 +1,15 @@
+<div class="container section">
+    <div class="crossroad">
+        <h1 class="title--page crossroad__title">Dashboard</h1>
+        <div class="crossroad__option">
+            <p>Welcome <%= username %> </p>
+        </div>
+        <div class="crossroad__option">
+
+        </div>
+    </div>
+</div>
+<section class="container section--pb thumbnails">
+    <h2 class="title--section is-centered">Les dernières recettes</h2>
+    <%- include('partials/thumbnails_grid.ejs', { recettes: recettes }) %> 
+</section>

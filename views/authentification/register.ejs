@@ -1,0 +1,31 @@
+<div class="container section">
+    <h1 class="title--section is-centered">Enregistrez-vous</h1>
+    <div class="form__container">
+        <%- include('../partials/alert_message') %> 
+        <form action="/authentification/register" method="POST">
+            <div class="form__item">
+                <label for="username" class="is-input-required">Votre prénom</label>
+                <input id="username" type="text" value="<%= typeof username !='undefined' ? username : '' %>" name="username" placeholder="Exemple : Michel" autocomplete="off" required>
+            </div>
+            <div class="form__item">
+                <label for="email" class="is-input-required">E-mail</label>
+                <input id="email" type="email" value="<%= typeof email !='undefined' ? email : '' %>" name="email" placeholder="Exemple : michel.dupont@gmail.com" autocomplete="off" required>
+            </div>
+            <div class="form__item">
+                <label for="password" class="is-input-required">Mot de passe</label>
+                <input id="password" type="password" value="<%= typeof password !='undefined' ? password : '' %>" name="password" autocomplete="off" placeholder="Votre mot de passe doit contenir au moins 8 caractères" required>
+            </div>
+            <div class="form__item">
+                <label for="confirmpassword" class="is-input-required">Confirmez votre mot de passe</label>
+            <input id="confirmpassword" type="password" value="<%= typeof confirmpassword !='undefined' ? confirmpassword : '' %>" name="confirmpassword" autocomplete="off" required>
+            </div>
+            <div class="action__btns action__btns--right margin-top--m">
+                <a href="/" class="btn btn--mute">Annuler</a>
+                <button type="submit" class="btn btn--primary">S'enregistrer</button>
+            </div>
+        </form>
+        <div class="margin-top--xl is-centered">
+            <p>Vous avez déjà un compte&nbsp;? <a href="/authentification/login" class="is-link--body">Identifiez-vous</a>...</p>
+        </div>
+    </div>
+</div>

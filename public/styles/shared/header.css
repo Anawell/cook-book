@@ -73,6 +73,11 @@ nav a:focus {
     font-weight: 400;
 }
 
+.username-nav_item {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-accent);
+}
+
 .main-nav_item.is-active a:before {
     content: '';
     position: absolute;

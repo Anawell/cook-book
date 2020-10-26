@@ -10,11 +10,15 @@
                         <a href="/recettes/ajouter">Ajouter une recette</a>
                     </li>
                     <li class="actions-nav_item">
-                        <a href="/recettes/ajouter">Se connecter</a>
+                        <a href="/authentification/login">Se connecter</a>
                     </li>
                     <li class="actions-nav_item">
-                        <a href="/recettes/ajouter">Se déconnecter</a>
+                        <a href="/authentification/register">S'enregistrer</a>
                     </li>
+                    <li class="actions-nav_item">
+                        <a href="/authentification/logout">Se déconnecter</a>
+                    </li>
+                    <li class="username-nav_item"><%= locals.username ? username : '' %></li>
                 </ul>
             </nav>
         </div>
