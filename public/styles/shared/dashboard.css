@@ -1,0 +1,11 @@
+.crossroad {
+    grid-column: 2 / -1;
+}
+
+.crossroad__option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

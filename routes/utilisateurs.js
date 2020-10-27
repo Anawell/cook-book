@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const passport = require('passport');
+const { ensureAuthenticated } = require('../auth-config');
 
 const Utilisateur = require('../models/Utilisateur');
 
@@ -13,7 +14,7 @@ router.get('/login', (req, res) => {
     });
 });
 
-router.get('/register', (req, res) => {
+router.get('/register', ensureAuthenticated, (req, res) => {
     res.render('authentification/register', {
         title: `S'enregistrer`,
         path: req.path

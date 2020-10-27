@@ -37,15 +37,14 @@
         <div><%- recette.steps %></div>
     </div>
 </article>
-
+<% if (locals.isLogged) {  %>
 <div class="container section recette__actions">
     <div class="action__btns action__btns--right">
      <a href="/recettes/<%= recette.slug %>/editer" class="btn btn--primary">Editer</a>
      <%- include('../partials/delete_form.ejs', { url: `/recettes/${recette.slug}` }) %>
     </div>
  </div>
-
-
+<% } %> 
 <aside class="bg--light">
    <div class="container section--large is-centered">
     <h3>Plus d'infos sur l'ingrédient principal de cette recette ?</h3>

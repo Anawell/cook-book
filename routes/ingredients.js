@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Ingredient = require('../models/Ingredient');
 const Recette = require('../models/Recette');
+const { ensureAuthenticated } = require('../auth-config');
 
 // All ingredients route
 router.get('/', async (req, res) => {
@@ -26,7 +27,7 @@ router.get('/', async (req, res) => {
 
 // New ingredient route (only to display the form)
 // La route de creation d'un objet doit toujours être en premier car sinon le param /:id peut penser que /new est un id
-router.get('/ajouter', (req, res) => {
+router.get('/ajouter', ensureAuthenticated, (req, res) => {
     res.render('ingredients/ajouter', { 
         ingredient: new Ingredient,
         title: 'Ajouter un ingrédient' 
@@ -72,7 +73,7 @@ router.get('/:slug', async (req, res) => { // : signifie qu'il va y avoir après
 
 
 // display the form to edit an ingredient
-router.get('/:slug/editer', async (req, res) => { 
+router.get('/:slug/editer', ensureAuthenticated, async (req, res) => { 
     try {
         const ingredient = await Ingredient.findOne({ slug: req.params.slug });
         res.render('ingredients/editer', { 

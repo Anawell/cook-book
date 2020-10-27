@@ -13,8 +13,7 @@ router.get('/', ensureAuthenticated, async (req, res) => {
     res.render('dashboard/index', {
         recettes: recettes,
         pageName: 'dashboard',
-        title: 'Tableau de bord',
-        username: req.user.username
+        title: 'Tableau de bord'
     }); 
 });
 

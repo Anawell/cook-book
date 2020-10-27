@@ -3,22 +3,28 @@
         <div class="container container--large">
             <nav class="actions-nav" aria-label="navigation actions">
                 <ul class="actions-nav_container">
-                    <li class="actions-nav_item">
-                        <a href="/ingredients/ajouter">Ajouter un ingrédient</a>
-                    </li>
-                    <li class="actions-nav_item">
-                        <a href="/recettes/ajouter">Ajouter une recette</a>
-                    </li>
+                    <% if (locals.isLogged) {  %>
+                        <li class="actions-nav_item actions-nav_dashboard">
+                            <a href="/dashboard">Tableau de bord</a>
+                        </li>
+                        <li class="actions-nav_item actions-nav_register">
+                            <a href="/authentification/register">Créer un compte</a>
+                        </li>
+                        <li class="actions-nav_item">
+                            <a href="/ingredients/ajouter">Ajouter un ingrédient</a>
+                        </li>
+                        <li class="actions-nav_item">
+                            <a href="/recettes/ajouter">Ajouter une recette</a>
+                        </li>
+                        <li class="actions-nav_item">
+                            <a href="/authentification/logout">Se déconnecter</a>
+                        </li>
+                        <li class="actions-nav_item actions-nav_username"><%= locals.user ? user.username : '' %></li>
+                    <% } else { %> 
                     <li class="actions-nav_item">
                         <a href="/authentification/login">Se connecter</a>
                     </li>
-                    <li class="actions-nav_item">
-                        <a href="/authentification/register">S'enregistrer</a>
-                    </li>
-                    <li class="actions-nav_item">
-                        <a href="/authentification/logout">Se déconnecter</a>
-                    </li>
-                    <li class="username-nav_item"><%= locals.username ? username : '' %></li>
+                    <% } %> 
                 </ul>
             </nav>
         </div>

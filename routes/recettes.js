@@ -3,6 +3,7 @@ const router = express.Router();
 const sanitizeHtml = require('sanitize-html');
 const Recette = require('../models/Recette');
 const Ingredient = require('../models/Ingredient');
+const { ensureAuthenticated } = require('../auth-config');
 
 
 const imageMimeTypes = ['image/jpeg', 'image/png'];
@@ -34,7 +35,7 @@ router.get('/', async (req, res) => {
 });
 
 // New recette route (only to display the form)
-router.get('/ajouter', async (req, res) => {
+router.get('/ajouter', ensureAuthenticated, async (req, res) => {
     renderNewPage(res, new Recette());
 });
 
@@ -81,7 +82,7 @@ router.get('/:slug', async (req, res) => {
 });
 
 // Edit a single recette
-router.get('/:slug/editer', async (req, res) => {
+router.get('/:slug/editer', ensureAuthenticated, async (req, res) => {
     try {
         recette = await Recette.findOne({ slug: req.params.slug });
         renderEditPage(res, recette);

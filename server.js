@@ -58,6 +58,13 @@ app.use((req, res, next) => {
     next();
 })
 
+// Middleware isLoggedIn?
+app.use(function (req, res, next) {
+    res.locals.isLogged = req.isAuthenticated();
+    res.locals.user = req.user;
+    next(); 
+});
+
 // Routes setup
 const indexRouter = require('./routes/index'); 
 const dashboardRouter = require('./routes/dashboard');

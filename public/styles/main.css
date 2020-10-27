@@ -10,6 +10,7 @@
 @import 'shared/thumbnails_grid.css';
 @import 'shared/banner.css';
 @import 'shared/recettes.css';
+@import 'shared/dashboard.css';
 
 *,
 *::before,
