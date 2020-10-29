@@ -10,6 +10,7 @@ const Utilisateur = require('../models/Utilisateur');
 router.get('/login', (req, res) => {
     res.render('authentification/login', {
         title: `S'identifier`,
+        pageName: 'login',
         path: req.path
     });
 });
@@ -17,6 +18,7 @@ router.get('/login', (req, res) => {
 router.get('/register', ensureAuthenticated, (req, res) => {
     res.render('authentification/register', {
         title: `S'enregistrer`,
+        pageName: 'register',
         path: req.path
     });
 });

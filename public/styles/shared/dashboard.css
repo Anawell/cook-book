@@ -1,11 +1,141 @@
-.crossroad {
-    grid-column: 2 / -1;
+:root {
+    --color-cta-ingredient-base: 145, 60%;
+    --color-cta-recette-base: 167, 54%;
+
+    --bg-cta-ingredient: hsl(var(--color-cta-ingredient-base), 97%);
+    --bg-cta-recette: hsl(var(--color-cta-recette-base), 97%);
+
+    --color-cta-ingredient: hsl(var(--color-cta-ingredient-base), 30%);
+    --color-cta-recette: hsl(var(--color-cta-recette-base), 30%);
 }
 
 .crossroad__option {
+    grid-column: span 6;
+}
+
+.crossroad__option--ingredient {
+    background: var(--bg-cta-ingredient);
+}
+
+.crossroad__option--recette {
+    background: var(--bg-cta-recette);
+}
+
+.crossroad__cta {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: var(--transition-duration);
+    width: 100%;
+    height: 100%;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+}
+
+.crossroad__cta:hover,
+.crossroad__cta:focus {
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.crossroad__option--recette .crossroad__cta {
+    color: var(--color-cta-recette);
+}
+
+.crossroad__option--ingredient .crossroad__cta {
+    color: var(--color-cta-ingredient);
+}
+
+.crossroad__cta:hover .border--hover::before,
+.crossroad__cta:focus .border--hover::before,
+.crossroad__cta:hover .border--hover::after,
+.crossroad__cta:focus .border--hover::after {
+    transform: translateY(0);
+}
+
+.crossroad__cta:hover .border--hover div::before,
+.crossroad__cta:focus .border--hover div::before,
+.crossroad__cta:hover .border--hover div::after,
+.crossroad__cta:focus .border--hover div::after {
+    transform: translateX(0);
+}
+
+.border--hover,
+.border--hover div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
     height: 100%;
 }
+
+.border--hover {
+    overflow: hidden;
+}
+
+.border--hover::before,
+.border--hover div::before,
+.border--hover::after,
+.border--hover div::after {
+    position: absolute;
+    content: "";
+    background: var(--color-accent);
+}
+
+.crossroad__option--ingredient .border--hover::before,
+.crossroad__option--ingredient .border--hover div::before,
+.crossroad__option--ingredient .border--hover::after,
+.crossroad__option--ingredient .border--hover div::after {
+    background: var(--color-cta-ingredient);
+}
+
+.crossroad__option--recette .border--hover::before,
+.crossroad__option--recette .border--hover div::before,
+.crossroad__option--recette .border--hover::after,
+.crossroad__option--recette .border--hover div::after {
+    background: var(--color-cta-recette);
+}
+
+.border--hover::before,
+.border--hover::after {
+    width: 2px;
+    height: 100%;
+}
+
+.border--hover::before {
+    left: 0;
+    top: 0;
+    transform: translateY(100%);
+    transition: .2s .8s;
+}
+
+.border--hover::after {
+    right: 0;
+    bottom: 0;
+    transform: translateY(-100%);
+    transition: .2s .2s;
+}
+
+.border--hover div::before,
+.border--hover div::after {
+    height: 2px;
+    width: 100%;
+}
+
+.border--hover div::before {
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition: .2s;
+}
+
+.border--hover div::after {
+    right: 0;
+    bottom: 0;
+    transform: translateX(100%);
+    transition: .2s .4s;
+}
+    
+    

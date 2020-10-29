@@ -30,6 +30,7 @@ router.get('/', async (req, res) => {
 router.get('/ajouter', ensureAuthenticated, (req, res) => {
     res.render('ingredients/ajouter', { 
         ingredient: new Ingredient,
+        pageName: 'ajoutIngredient',
         title: 'Ajouter un ingrédient' 
     });
 });

@@ -82,8 +82,17 @@ nav a:focus {
     font-weight: 400;
 }
 
-.actions-nav_item.actions-nav_register a {
+.actions-nav_item a:hover,
+.actions-nav_item a:focus {
+    color: var(--color-accent);
+}
+
+.is-active.actions-nav_item a {
     font-weight: 700;
+}
+
+.actions-nav_logout a {
+    color: var(--color-mute);
 }
 
 .actions-nav_item.actions-nav_username {

@@ -159,6 +159,7 @@ async function renderFormPage(res, recette, form, seoTitle, hasError = false) {
         }
         if (form === 'ajouter') {
             params.coverRequired = true;
+            params.pageName = 'ajoutRecette';
         }
         if (hasError) {
             params.title = 'Erreur';

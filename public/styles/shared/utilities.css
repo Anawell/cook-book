@@ -15,6 +15,10 @@
     max-width: 1440px;
 }
 
+.container--full {
+    max-width: 100%;
+}
+
 .container--small {
     margin: auto;
     max-width: 660px;

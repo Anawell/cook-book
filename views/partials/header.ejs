@@ -1,28 +1,28 @@
 <header>
     <div class="has-thin-border-bottom">
-        <div class="container container--large">
+        <div class="container container--full">
             <nav class="actions-nav" aria-label="navigation actions">
                 <ul class="actions-nav_container">
                     <% if (locals.isLogged) {  %>
-                        <li class="actions-nav_item actions-nav_dashboard">
-                            <a href="/dashboard">Tableau de bord</a>
+                        <li class="<%= locals.pageName === 'dashboard' ? 'is-active ' : '' %>actions-nav_item actions-nav_dashboard">
+                            <a href="/dashboard" <%= locals.pageName === 'dashboard' ? ' aria-current=page ' : '' %>>Tableau de bord</a>
                         </li>
-                        <li class="actions-nav_item actions-nav_register">
-                            <a href="/authentification/register">Créer un compte</a>
+                        <li class="<%= locals.pageName === 'register' ? 'is-active ' : '' %>actions-nav_item">
+                            <a href="/authentification/register" <%= locals.pageName === 'register' ? ' aria-current=page ' : '' %>>Créer un compte</a>
                         </li>
-                        <li class="actions-nav_item">
-                            <a href="/ingredients/ajouter">Ajouter un ingrédient</a>
+                        <li class="<%= locals.pageName === 'ajoutIngredient' ? 'is-active ' : '' %>actions-nav_item">
+                            <a href="/ingredients/ajouter" <%= locals.pageName === 'ajoutIngredient' ? ' aria-current=page ' : '' %>>Ajouter un ingrédient</a>
                         </li>
-                        <li class="actions-nav_item">
-                            <a href="/recettes/ajouter">Ajouter une recette</a>
+                        <li class="<%= locals.pageName === 'ajoutRecette' ? 'is-active ' : '' %>actions-nav_item">
+                            <a href="/recettes/ajouter" <%= locals.pageName === 'ajoutRecette' ? ' aria-current=page ' : '' %>>Ajouter une recette</a>
                         </li>
-                        <li class="actions-nav_item">
+                        <li class="actions-nav_item actions-nav_logout">
                             <a href="/authentification/logout">Se déconnecter</a>
                         </li>
                         <li class="actions-nav_item actions-nav_username"><%= locals.user ? user.username : '' %></li>
                     <% } else { %> 
-                    <li class="actions-nav_item">
-                        <a href="/authentification/login">Se connecter</a>
+                    <li class="<%= locals.pageName === 'login' ? 'is-active ' : '' %>actions-nav_item">
+                        <a href="/authentification/login" <%= locals.pageName === 'login' ? ' aria-current=page ' : '' %>>Se connecter</a>
                     </li>
                     <% } %> 
                 </ul>
