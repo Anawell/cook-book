@@ -88,7 +88,7 @@ router.get('/:slug/editer', ensureAuthenticated, async (req, res) => {
 });
 
 // modify an ingredient
-router.put('/:slug', async (req, res) => { 
+router.put('/:slug', ensureAuthenticated, async (req, res) => { 
     let ingredient; // cette variable doit être définie hors du try, pour qu'on puisse s'en servir dans le catch
     try {
         ingredient = await Ingredient.findOne({ slug: req.params.slug });
@@ -109,7 +109,7 @@ router.put('/:slug', async (req, res) => {
     } 
 });
 
-router.delete('/:slug', async (req, res) => { 
+router.delete('/:slug', ensureAuthenticated, async (req, res) => { 
     let ingredient; // cette variable doit être définie hors du try, pour qu'on puisse s'en servir dans le catch
     try {
         ingredient = await Ingredient.findOne({ slug: req.params.slug });

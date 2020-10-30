@@ -93,7 +93,7 @@ router.get('/:slug/editer', ensureAuthenticated, async (req, res) => {
 });
 
 // Modify a single recette
-router.put('/:slug', async (req, res) => { 
+router.put('/:slug', ensureAuthenticated, async (req, res) => { 
     let recette;
     try {
         recette = await Recette.findOne({ slug: req.params.slug });
@@ -121,7 +121,7 @@ router.put('/:slug', async (req, res) => {
 });
 
 // Delete a recette
-router.delete('/:slug', async (req, res) => {
+router.delete('/:slug', ensureAuthenticated, async (req, res) => {
     let recette;
     try {
         recette = await Recette.findOne({ slug: req.params.slug });

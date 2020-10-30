@@ -49,6 +49,9 @@ nav a:focus {
 }
 
 .actions-nav_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-right: calc(var(--space-unit) * 2);
 }
 
@@ -91,6 +94,7 @@ nav a:focus {
     font-weight: 700;
 }
 
+.actions-nav_logout,
 .actions-nav_logout a {
     color: var(--color-mute);
 }
@@ -100,6 +104,8 @@ nav a:focus {
     font-family: 'Playfair Display', serif;
     color: var(--color-accent);
 }
+
+/* Username */
 
 .actions-nav_item.actions-nav_username {
     position: relative;
@@ -159,4 +165,24 @@ nav a:focus {
     .main-nav_logo.is-desktop {
         display: inline-block;
     }
+}
+
+/* ==========================================================================
+    Icons
+    ========================================================================== */
+
+.actions-nav_item .icon__svg {
+    margin-right: 0.33em;
+    width: 1em;
+    height: auto;
+}
+
+.actions-nav_item .icon__path {
+    transition: var(--transition-duration);
+    fill: currentColor;
+}
+
+.actions-nav_item:hover .icon__path,
+.actions-nav_item:focus .icon__path {
+    fill: var(--color-accent);
 }
