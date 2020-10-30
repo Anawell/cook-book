@@ -90,7 +90,7 @@ nav a:focus {
     color: var(--color-accent);
 }
 
-.is-active.actions-nav_link {
+.is-active .actions-nav_link {
     font-weight: 700;
 }
 
@@ -184,10 +184,10 @@ nav a:focus {
         white-space: nowrap;
         width: 1px;
     }
-    .actions-nav_item .icon__svg {
+    .actions-nav_item .icon__svg:not(.icon__svg--login) {
         width: 2em;
     }
-    .is-active .icon__path {
+    .is-active .icon__svg:not(.icon__svg--login) .icon__path {
         fill: var(--color-accent);
     }
 }
