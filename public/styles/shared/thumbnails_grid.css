@@ -3,6 +3,12 @@
     --thumbnail-cover-aspect-ratio: 0.85;
 }
 
+@media screen and (max-width: 399px) {
+    :root {
+        --thumbnail-cover-width: 280px;
+    }
+}
+
 .thumbnails .title--section {
     margin-bottom: 1.618em;
 }

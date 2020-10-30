@@ -8,6 +8,7 @@
 .banner__title {
     grid-column: 1;
     margin: 0;
+    text-align: left;
 }
 
 .banner__img {
@@ -22,4 +23,34 @@
 
 .banner__description {
     grid-column: 10 / -1;
+}
+
+/* ==========================================================================
+    RESPONSIVE
+    ========================================================================== */
+
+@media screen and (max-width: 959px) {
+    .banner__title {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-bottom: 0.33em;
+    }
+    .banner__img {
+        grid-column: 1 / 9;
+    }
+    .banner__description {
+        grid-column: 9 / -1;
+    }
+}
+
+@media screen and (max-width: 679px) {
+    .banner {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .banner__img {
+        grid-column: 1 / -1;
+    }
+    .banner__description {
+        grid-column: 1 / -1;
+    }
 }

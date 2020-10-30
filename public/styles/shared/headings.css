@@ -21,10 +21,10 @@ h3 {
 }
 
 .title--page {
-    font-size: 9rem;
+    font-size: 4rem;
+    font-size: calc(4rem + (9 - 4) * (100vw - 320px) / (960 - 320));
     font-weight: 900;
-    line-height: 80%;
-    writing-mode: vertical-lr;  
+    line-height: 120%;
 }
 
 .title--article {
@@ -60,4 +60,16 @@ h3 {
 .title--detail {
     font-size: 1.6rem;
     letter-spacing: 1px;
+}
+
+/* ==========================================================================
+    RESPONSIVE
+    ========================================================================== */
+
+@media screen and (min-width: 960px) {
+    .title--page {
+        font-size: 9rem;
+        line-height: 80%;
+        writing-mode: vertical-lr;  
+    }
 }

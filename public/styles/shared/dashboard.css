@@ -11,6 +11,7 @@
 
 .crossroad__option {
     grid-column: span 6;
+    text-align: center;
 }
 
 .crossroad__option--ingredient {
@@ -152,4 +153,29 @@
 .crossroad__cta:hover img,
 .crossroad__cta:focus img {
     transform: scale(1.1);
+}
+
+/* ==========================================================================
+    RESPONSIVE
+    ========================================================================== */
+
+@media screen and (max-width: 1024px) {
+    .crossroad__cta {
+        padding: 1em;
+    }
+}
+
+@media screen and (max-width: 959px) {
+    .banner.crossroad {
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
+
+@media screen and (max-width: 679px) {
+    .banner.crossroad {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .crossroad__option {
+        grid-column: 1 / -1;
+    }
 }
