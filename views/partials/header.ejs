@@ -2,13 +2,13 @@
     <div class="has-thin-border-bottom">
         <div class="container container--full">
             <nav class="actions-nav" aria-label="navigation actions">
-                <ul class="actions-nav_container">
+                <ul class="actions-nav__container">
                     <% if (locals.isLogged) {  %>
-                        <li class="<%= locals.pageName === 'dashboard' ? 'is-active ' : '' %>actions-nav_item actions-nav_item--dashboard">
+                        <li class="<%= locals.pageName === 'dashboard' ? 'is-active ' : '' %>actions-nav__item actions-nav__item--dashboard">
                             
-                            <a href="/dashboard" <%= locals.pageName === 'dashboard' ? ' aria-current=page ' : '' %> class="actions-nav_link">
-                                <svg class="icon__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" width="16" height="16" role="img" aria-hidden="true">
-                                    <path class="icon__path" d="M47.9,56.1C47.9,56.1,47.8,56.2,47.9,56.1C47.8,56.2,47.8,56.1,47.9,56.1z M60.5,31.6l-9.7-0.2
+                            <a href="/dashboard" <%= locals.pageName === 'dashboard' ? ' aria-current=page ' : '' %> class="actions-nav__link">
+                                <svg class="actions-nav__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" width="16" height="16" role="img" aria-hidden="true">
+                                    <path class="actions-nav__icon__path" d="M47.9,56.1C47.9,56.1,47.8,56.2,47.9,56.1C47.8,56.2,47.8,56.1,47.9,56.1z M60.5,31.6l-9.7-0.2
                                     c-0.1,1.5-0.2,2.9-0.2,4.4c0,0.3,0,0.6,0,0.9c0,0.1,0,0.1,0,0.2c-0.1,6.3,0.3,8.7,0.3,15.1c0,0,0,0.1,0,0.2c0,0.3,0.1,0.6,0.1,1
                                     c0,0.2,0,0.4,0,0.7v0.4c0,0.2-0.1,0.3-0.1,0.5c-0.1,1.2-0.1,0.3-0.2,1.5c0.2,0.2,0.2,0.4,0.1,0.6V57c-0.2,0.2-0.5,0.3-0.7,0.2
                                     c-0.1,0-0.1,0-0.1,0c-0.1-0.1-0.1-0.1-0.1-0.1c-1.2-0.3-1.3,0.1-2.4,0.1h-0.1c-0.1,0.1-0.2,0.1-0.3,0.1c-0.3,0-0.7,0-1.1,0h-0.3
@@ -40,13 +40,13 @@
                                     C52.6,24.4,52.9,24.6,53.2,24.9z M48.2,55.6C48.2,55.6,48.2,55.6,48.2,55.6C48.2,55.6,48.2,55.6,48.2,55.6L48.2,55.6
                                     C48.2,55.6,48.2,55.6,48.2,55.6z"/>
                                 </svg>
-                                <span class="actions-nav_hide">Tableau de bord</span>
+                                <span class="actions-nav__text--hide">Tableau de bord</span>
                             </a>
                         </li>
-                        <li class="<%= locals.pageName === 'register' ? 'is-active ' : '' %>actions-nav_item">
-                            <a href="/authentification/register" <%= locals.pageName === 'register' ? ' aria-current=page ' : '' %> class="actions-nav_link">
-                                <svg class="icon__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" width="16" height="16" role="img" aria-hidden="true">
-                                    <path class="icon__path" d="M21.4,21.7c1,1.3,2.4,2.7,4.1,3.6c1.7,1,3.5,1.4,5.3,1.6c0.9,0.1,1.8,0,2.7-0.1
+                        <li class="<%= locals.pageName === 'register' ? 'is-active ' : '' %>actions-nav__item">
+                            <a href="/authentification/register" <%= locals.pageName === 'register' ? ' aria-current=page ' : '' %> class="actions-nav__link">
+                                <svg class="actions-nav__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" width="16" height="16" role="img" aria-hidden="true">
+                                    <path class="actions-nav__icon__path" d="M21.4,21.7c1,1.3,2.4,2.7,4.1,3.6c1.7,1,3.5,1.4,5.3,1.6c0.9,0.1,1.8,0,2.7-0.1
                                     c0.4-0.1,0.9-0.2,1.3-0.3l0.3-0.1l0.2-0.1l0,0l0.1,0l0.5-0.2c1.9-0.7,3.1-1.5,4.5-2.7c2.6-2.4,4.3-5.4,4.4-8.7
                                     c0.1-1.6-0.2-3.2-0.7-4.8C43.7,8.5,43,7,42,5.6c-1-1.2-2.2-2.3-3.5-3c-0.7-0.4-1.3-0.7-2.1-0.9c-0.4-0.1-0.8-0.2-1.2-0.3
                                     c-0.4-0.1-0.9-0.1-1.3-0.2c-1.2-0.1-2.5-0.1-3.7,0c-0.8,0.1-1.5,0.3-2.3,0.4c-1,0.4-1.8,0.8-2.7,1.3c-0.5,0.3-1,0.7-1.4,1.2
@@ -73,13 +73,13 @@
                                     c-3.6,0-3.5-5.5,0-5.5c2.4,0,4.9,0.1,7.3,0.3c-0.1-2-0.3-5-0.5-7c-0.3-3.5,5.2-3.5,5.5,0c0.2,2.1,0.3,5.2,0.5,7.3
                                     c2.1,0.1,4.1,0,6.2-0.2C44.9,42.5,44.8,48.1,41.3,48.5z"/>
                                 </svg>
-                                <span class="actions-nav_hide">Créer un compte</span>
+                                <span class="actions-nav__text--hide">Créer un compte</span>
                             </a>
                         </li>
-                        <li class="<%= locals.pageName === 'ajoutIngredient' ? 'is-active ' : '' %>actions-nav_item">
-                            <a href="/ingredients/ajouter" <%= locals.pageName === 'ajoutIngredient' ? ' aria-current=page ' : '' %> class="actions-nav_link">
-                                <svg class="icon__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" width="16" height="16" role="img" aria-hidden="true">
-                                    <path class="icon__path" d="M27.9,10.9c-0.2-0.8-0.3-1.5-0.4-2.3c0.1-0.8,0-1.6,0.1-2.4c0.1-1.1,0.3-2.2,0.6-3.3
+                        <li class="<%= locals.pageName === 'ajoutIngredient' ? 'is-active ' : '' %>actions-nav__item">
+                            <a href="/ingredients/ajouter" <%= locals.pageName === 'ajoutIngredient' ? ' aria-current=page ' : '' %> class="actions-nav__link">
+                                <svg class="actions-nav__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" width="16" height="16" role="img" aria-hidden="true">
+                                    <path class="actions-nav__icon__path" d="M27.9,10.9c-0.2-0.8-0.3-1.5-0.4-2.3c0.1-0.8,0-1.6,0.1-2.4c0.1-1.1,0.3-2.2,0.6-3.3
                                     c0.1-0.4,0.4-0.8,0.7-0.7c0.1,0,0.1,0,0.2,0.1c0.1-0.1,0.3-0.3,0.5-0.3c1.2-0.5,2.9-0.6,4.2-0.7c0.2,0,0.4,0.1,0.5,0.3c0,0,0,0,0,0
                                     c0-0.1,0-0.2,0-0.1c0.1,0.2,0.1,0.5,0,0.8l0.1-0.1c0,0.2,0,0.3-0.1,0.4l0.1-0.3c-0.1,0.2-0.2,0.5-0.3,0.7C34.1,3,34,3.1,34,3.1
                                     C33.5,4.1,33.1,5,32.8,6c0,0.1,0,0.1,0,0.2c-0.1,0.2-0.2,0.4-0.3,0.6c0,0,0,0,0,0.1c-0.1,0.7-0.2,1.4-0.3,2.1c0,0.2-0.1,0.3-0.2,0.4
@@ -117,13 +117,13 @@
                                     c0,0.2-0.2,0.4-0.2,0.6c0,0.2,0,0.4,0.1,0.5c-0.1,0.8,1.1,0.9,1.4,0.2c0,0,0.1,0,0.1-0.1c0.4-0.1,0.7-0.4,0.8-0.7c0-0.1,0-0.3,0-0.4
                                     C50.4,35.5,50.4,35.2,50.5,35z"/>
                                 </svg>
-                                <span class="actions-nav_hide">Ajouter un ingrédient</span>
+                                <span class="actions-nav__text--hide">Ajouter un ingrédient</span>
                             </a>
                         </li>
-                        <li class="<%= locals.pageName === 'ajoutRecette' ? 'is-active ' : '' %>actions-nav_item">
-                            <a href="/recettes/ajouter" <%= locals.pageName === 'ajoutRecette' ? ' aria-current=page ' : '' %> class="actions-nav_link">
-                                <svg class="icon__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" width="16" height="16" role="img" aria-hidden="true">
-                                    <path class="icon__path" d="M53.8,55.8c0-0.2,0-0.3,0-0.5c0-1.2,0-2.4,0-3.6c0-2.4,0-4.6,0-6.7c-0.1-6.8-0.1-13.5-0.2-19.8
+                        <li class="<%= locals.pageName === 'ajoutRecette' ? 'is-active ' : '' %>actions-nav__item">
+                            <a href="/recettes/ajouter" <%= locals.pageName === 'ajoutRecette' ? ' aria-current=page ' : '' %> class="actions-nav__link">
+                                <svg class="actions-nav__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" width="16" height="16" role="img" aria-hidden="true">
+                                    <path class="actions-nav__icon__path" d="M53.8,55.8c0-0.2,0-0.3,0-0.5c0-1.2,0-2.4,0-3.6c0-2.4,0-4.6,0-6.7c-0.1-6.8-0.1-13.5-0.2-19.8
                                     l0.1-0.4c-0.1-0.7-0.1-1.4-0.2-1.5c0-0.4,0-0.7,0-1.1c0.1-1.1,0-2-0.1-2.6c0.1-0.8,0.1-0.3,0.2-0.7c-0.1-1.2-0.1-2.5-0.1-3.9
                                     c0.1-0.4,0.1-1,0.1-2.2l-0.1,0c0-0.4,0-0.8,0-1.2c0-1.2,0.1-2.4,0.2-3.5c0-0.1,0-0.2,0-0.3c0-1.3-0.3-2.4-0.8-3.2
                                     c-0.2-0.1-0.3-0.2-0.5-0.3c-0.7-0.3-1.7-0.1-2.4-0.3c-0.1,0-0.2-0.1-0.3-0.1c-0.2,0-0.3,0-0.5,0c-0.6,0-1.2,0-1.9,0
@@ -140,13 +140,13 @@
                                     c-3.6,0-3.5-5.5,0-5.5c2.4,0,4.9,0.1,7.3,0.3c-0.1-2-0.3-5-0.5-7c-0.3-3.5,5.2-3.5,5.5,0c0.2,2.1,0.3,5.2,0.5,7.3
                                     c2.1,0.1,4.1,0,6.2-0.2C47.1,27.3,47.1,32.8,43.6,33.2z"/>
                                 </svg>
-                                <span class="actions-nav_hide">Ajouter une recette</span>
+                                <span class="actions-nav__text--hide">Ajouter une recette</span>
                             </a>
                         </li>
-                        <li class="actions-nav_item">
-                            <a href="/authentification/logout" class="actions-nav_link actions-nav_link--logout">
-                                <svg class="icon__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" width="16" height="16" role="img" aria-hidden="true">
-                                    <path class="icon__path" d="M41.4,57.3c-0.1,0-0.1,0-0.2,0c0.1,0.1,0.2,0.3,0.3,0.5c0,0,0,0,0,0c0.1,0.2,0.2,0.4,0.3,0.7
+                        <li class="actions-nav__item">
+                            <a href="/authentification/logout" class="actions-nav__link actions-nav__link--logout">
+                                <svg class="actions-nav__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" width="16" height="16" role="img" aria-hidden="true">
+                                    <path class="actions-nav__icon__path" d="M41.4,57.3c-0.1,0-0.1,0-0.2,0c0.1,0.1,0.2,0.3,0.3,0.5c0,0,0,0,0,0c0.1,0.2,0.2,0.4,0.3,0.7
                                     c0,0.6-0.4,1.2-1,1.4c-0.7,0.3-1.6,0.2-2.4,0.1c-0.3,0-0.6-0.1-0.9-0.1c0.1,0.6-0.2,1.2-0.9,1.2c-5.5,0-11.1,0.1-16.7,0
                                     c-0.1,0.1-0.3,0.1-0.4,0.1c-1.5-0.1-3.1-0.1-4.6-0.3c-0.6,0-1.2,0-1.9-0.1c-3.7-0.2-7.2,0.4-8.4-2.2H4.5v-0.2l0,0
                                     c-0.2-0.6-0.3-1.4-0.3-2.3c0,0,0,0,0,0c0-0.5-0.1-1-0.1-1.5c0-0.2,0-0.5,0-0.7C4,53.1,4,52.3,3.9,51.5c0-0.2,0-0.3,0.1-0.4l-0.1-0.6
@@ -178,15 +178,15 @@
                                     C61.6,32.3,61.8,32.6,61.8,32.9z M47.9,34c-0.6,0-1.1-0.1-1.7-0.1h-1.7C44.4,34,44.2,34,44.1,34c-1.4,0-2.7-0.1-4.1-0.1h-2.1
                                     c1.5,0.1,3,0.2,4.5,0.3c0.1,0,0.1,0,0.1,0h0.3c0-0.1,0.1-0.1,0.3-0.1h1.8C45.9,34.1,46.9,34,47.9,34z"/>
                                 </svg>
-                                <span class="actions-nav_hide">Se déconnecter</span>
+                                <span class="actions-nav__text--hide">Se déconnecter</span>
                             </a>
                         </li>
-                        <li class="actions-nav_item actions-nav_item--username"><%= locals.user ? user.username : '' %></li>
+                        <li class="actions-nav__item actions-nav__item--username"><%= locals.user ? user.username : '' %></li>
                     <% } else { %> 
-                    <li class="<%= locals.pageName === 'login' ? 'is-active ' : '' %>actions-nav_item">
-                        <a href="/authentification/login" <%= locals.pageName === 'login' ? ' aria-current=page ' : '' %> class="actions-nav_link">
-                            <svg class="icon__svg icon__svg--login" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" width="16" height="16" role="img" aria-hidden="true">
-                                <path class="icon__path" d="M39.2,4.3c-0.1-0.1-0.2-0.1-0.1-0.1C39.1,4.2,39.2,4.2,39.2,4.3z M49.1,59.9C49.4,60.4,49.3,60.1,49.1,59.9
+                    <li class="<%= locals.pageName === 'login' ? 'is-active ' : '' %>actions-nav__item">
+                        <a href="/authentification/login" <%= locals.pageName === 'login' ? ' aria-current=page ' : '' %> class="actions-nav__link">
+                            <svg class="actions-nav__icon actions-nav__icon--login" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" width="16" height="16" role="img" aria-hidden="true">
+                                <path class="actions-nav__icon__path" d="M39.2,4.3c-0.1-0.1-0.2-0.1-0.1-0.1C39.1,4.2,39.2,4.2,39.2,4.3z M49.1,59.9C49.4,60.4,49.3,60.1,49.1,59.9
                                 L49.1,59.9z M53.3,54.6c0,0.2,0,0.4-0.4,0.6v0.4c0,0.3-0.1,0.6-0.2,0.8l-0.1,0.3L52.4,57v0.1l-0.2,0.3c-0.2,0.3-0.5,0.7-0.8,1
                                 c-0.6,0.7-1.4,1.1-2.1,1.4c-0.1,0-0.1,0.1-0.2,0.1h-0.2c-0.3,0.1-0.5,0.2-0.8,0.3c-0.3,0.1-0.3,0.1-0.4,0.1c-0.2,0-0.4,0.1-0.5,0.1
                                 h-2.7c-0.3,0-0.7,0-0.7,0c-2.3,0.2-4.8,0.3-7.1,0.4s-4.6,0.2-6.8,0.4c-1.3,0.1-3,0.2-4.7,0.3h-2.8c-1.5,0-2.9-0.2-4.3-0.5
@@ -226,24 +226,24 @@
     </div>
     <div class="container">
         <nav class="main-nav has-thick-border-bottom" aria-label="navigation principale">
-            <div class="main-nav_logo is-mobile">
-                <a href="/" <%= locals.pageName === 'accueil' ? ' aria-current=page ' : '' %> class="main-nav_link">
+            <div class="main-nav__logo main-nav__logo--mobile">
+                <a href="/" <%= locals.pageName === 'accueil' ? ' aria-current=page ' : '' %> class="main-nav__link">
                     <img src="/img/cook-book-logo.svg" alt="Logo Cook Book by Fab" width="180" height="68">
                     <span>Accueil</span>
                 </a>
             </div>
-            <ul class="main-nav_container">
-                <li class="<%= locals.pageName === 'ingredients' ? 'is-active ' : '' %>main-nav_item">
-                    <a href="/ingredients" <%= locals.pageName === 'ingredients' ? ' aria-current=page ' : '' %> class="main-nav_link">Ingrédients</a>
+            <ul class="main-nav__container">
+                <li class="<%= locals.pageName === 'ingredients' ? 'is-active ' : '' %>main-nav__item">
+                    <a href="/ingredients" <%= locals.pageName === 'ingredients' ? ' aria-current=page ' : '' %> class="main-nav__link">Ingrédients</a>
                 </li>
-                <li class="main-nav_item main-nav_logo is-desktop">
-                    <a href="/" <%= locals.pageName === 'accueil' ? ' aria-current=page ' : '' %> class="main-nav_link">
+                <li class="main-nav__item main-nav__logo main-nav__logo--desktop">
+                    <a href="/" <%= locals.pageName === 'accueil' ? ' aria-current=page ' : '' %> class="main-nav__link">
                         <img src="/img/cook-book-logo.svg" alt="Logo Cook Book by Fab" width="180" height="68">
                         <span>Accueil</span>
                     </a>
                 </li>
-                <li class="<%= locals.pageName === 'recettes' ? 'is-active ' : '' %>main-nav_item">
-                    <a href="/recettes" <%= locals.pageName === 'recettes' ? ' aria-current=page ' : '' %> class="main-nav_link">Recettes</a>
+                <li class="<%= locals.pageName === 'recettes' ? 'is-active ' : '' %>main-nav__item">
+                    <a href="/recettes" <%= locals.pageName === 'recettes' ? ' aria-current=page ' : '' %> class="main-nav__link">Recettes</a>
                 </li>
             </ul>
         </nav>
