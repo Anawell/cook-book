@@ -29,7 +29,8 @@ h3 {
 
 .title--article {
     margin: 0.5em 0 0.5em 0;  
-    font-size: 6.4rem;
+    font-size: 4rem;
+    font-size: calc(4rem + (6.4 - 4) * (100vw - 320px) / (960 - 320));
     font-weight: 900;
     line-height: 120%;
 }
@@ -60,6 +61,15 @@ h3 {
 .title--detail {
     font-size: 1.6rem;
     letter-spacing: 1px;
+}
+
+@supports (font-size: clamp(4rem, 8vw, 9rem)) {
+    .title--page {
+        font-size: clamp(4rem, 8vw, 9rem);
+    }
+    .title--article {
+        font-size: clamp(4rem, 6vw, 6.4rem);
+    }
 }
 
 /* ==========================================================================

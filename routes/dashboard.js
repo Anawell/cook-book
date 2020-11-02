@@ -6,7 +6,7 @@ const Recette = require('../models/Recette');
 router.get('/', ensureAuthenticated, async (req, res) => { 
     let recettes; 
     try {
-        recettes = await Recette.find().sort({ createdAt: 'desc'}).limit(6).exec();
+        recettes = await Recette.find().sort({ createdAt: 'desc'}).limit(7).exec();
     } catch {
         recettes = []
     }

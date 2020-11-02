@@ -2,17 +2,15 @@
     display: grid;
     grid-column-gap: calc(var(--space-unit) * 2);
     grid-row-gap: 1em;
-    grid-template-columns: repeat(13, 1fr);
 }
 
 .banner__title {
-    grid-column: 1;
-    margin: 0;
-    text-align: left;
+    text-align: center;
+    margin-bottom: 0.2em;
+    margin-top: 0;
 }
 
 .banner__img {
-    grid-column: 2 / 10;
     overflow: hidden;
 }
 
@@ -21,19 +19,18 @@
     height: 100%;
 }
 
-.banner__description {
-    grid-column: 10 / -1;
-}
+
 
 /* ==========================================================================
     RESPONSIVE
     ========================================================================== */
 
-@media screen and (max-width: 959px) {
+@media screen and (min-width: 680px) {
+    .banner {
+        grid-template-columns: repeat(12, 1fr);
+    }
     .banner__title {
         grid-column: 1 / -1;
-        text-align: center;
-        margin-bottom: 0.33em;
     }
     .banner__img {
         grid-column: 1 / 9;
@@ -43,14 +40,19 @@
     }
 }
 
-@media screen and (max-width: 679px) {
+@media screen and (min-width: 960px) {
     .banner {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(13, 1fr);
     }
     .banner__img {
-        grid-column: 1 / -1;
+        grid-column: 2 / 10;
     }
     .banner__description {
-        grid-column: 1 / -1;
+        grid-column: 10 / -1;
+    }
+    .banner__title {
+        grid-column: 1;
+        margin: 0;
+        text-align: left;
     }
 }
